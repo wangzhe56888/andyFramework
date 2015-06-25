@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed May 20 14:47:23 CST 2015
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=AndyFramework.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<po|AndyFramework>~com/~andy/~framework/~test/;<jar|android-support-v4.jar>
+includes=
