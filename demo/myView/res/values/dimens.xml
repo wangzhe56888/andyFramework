@@ -1,0 +1,9 @@
+<resources>
+    <!-- 共同配置 -->
+    <dimen name="common_title_height">46dp</dimen>
+    <dimen name="common_content_font_size">14sp</dimen>
+    <dimen name="common_button_font_size">20sp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>

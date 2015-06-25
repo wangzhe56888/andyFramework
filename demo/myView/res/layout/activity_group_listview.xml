@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <include 
+        android:id="@+id/title_id"
+        layout="@layout/common_layout_title"
+        />
+    <!--简单的列表显示-->
+    <ListView android:id="@+id/group_list"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:cacheColorHint="#00000000"/>
+</LinearLayout>

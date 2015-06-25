@@ -1,0 +1,25 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:background="@color/background_color"
+    >
+    <include 
+        android:id="@+id/title_id"
+        layout="@layout/common_layout_title"
+        />
+    <com.andy.framework.gifview.AndyGifView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/andyGifView_id"
+        android:layout_below="@id/title_id"
+        ></com.andy.framework.gifview.AndyGifView>
+    
+    <com.andy.framework.gifview.AndyGifView
+        android:id="@+id/andyGifView_angel_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/andyGifView_id"
+        ></com.andy.framework.gifview.AndyGifView>
+</RelativeLayout>

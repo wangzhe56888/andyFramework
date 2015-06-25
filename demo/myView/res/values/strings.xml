@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Andy框架</string>
+    <string name="image">image</string>
+    <string name="contentDescription">contentDescription</string>
+    
+    
+    <string name="activity_start_title">andy 框架</string>
+    <string name="activity_circle_title">旋转控件</string>
+    <string name="activity_font_anim_title">文字动画</string>
+    <string name="activity_draw_image_title">绘画控件</string>
+    <string name="activity_webview_progress_title">进度条WebView</string>
+    <string name="activity_drag_view_title">控件拖拽</string>
+    <string name="activity_install_states_title">安装状态监听</string>
+    <string name="activity_volley_title">volley开源框架</string>
+    <string name="activity_andyframework_http_title">andy http框架测试</string>
+    <string name="activity_andyframework_bitmap_title">andy bitmap测试</string>
+    <string name="activity_webservice_title">webservice测试</string>
+    <string name="activity_group_listview_title">listView分组显示</string>
+    
+    <string name="activity_app_installed_all_title">系统所有应用</string>
+    <string name="activity_app_installed_external_title">安装的应用程序</string>
+    <string name="activity_reside_layout_title">滑动缩小菜单</string>
+    <string name="activity_sliding_horizontal_title">左侧菜单horizontalScrollView实现</string>
+    <string name="activity_expandableListView_title">分组listview</string>
+    <string name="activity_gifView_title">GIF动画显示</string>
+    <string name="activity_network_state_title">网络状态相关</string>
+    <string name="activity_validate_title">常用正则验证</string>
+    <string name="activity_animation_title">动画测试</string>
+    <string name="activity_surfaceview_title">surfaceview测试</string>
+    <string name="activity_location_title">获取地理位置</string>
+
+    <string name="nba_bulls">公牛</string>
+    <string name="nba_bucks">雄鹿</string>
+    <string name="nba_grizzly">灰熊</string>
+    <string name="nba_maverick">小牛</string>
+    <string name="nba_bobcat">山猫</string>
+    <string name="nba_raptor">猛龙</string>
+    <string name="nba_wolves">森林狼</string>
+    
+    <string name="stationId">%1$s</string>
+    
+    <string name="andyframework_http_get">get请求</string>
+    <string name="andyframework_http_post">post请求</string>
+    
+    <string name="webservice_http_get">发送请求</string>
+    
+    <string name="andyframework_bitmap_load">加载图片</string>
+    <string name="andyframework_bitmap_clear_cache">清除缓存</string>
+    <string name="andyframework_refresh">刷新</string>
+    <string name="andyframework_commit">提交</string>
+</resources>

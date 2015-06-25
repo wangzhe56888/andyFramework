@@ -1,0 +1,21 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:background="@color/background_color"
+    >
+    <include 
+        android:id="@+id/title_id"
+        layout="@layout/common_layout_title"
+        />
+    <TextView
+        android:id="@+id/apk_states" 
+        android:layout_width="fill_parent"
+        android:layout_below="@id/title_id"
+        style="@style/content_text_style"
+        android:text="图片可以拖拽到任意位置"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        />
+</RelativeLayout>

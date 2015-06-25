@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project name="myView" default="deleteCommonFolder" >
+    <!-- 版本 -->
+	<property name="version" value="v2.3.2" />
+	<!-- ANT环境变量 -->
+	<property environment="env" />
+	<!-- 使用第三方的ant包，使ant支持for循环-->
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="G:/tool/ant/apache-ant-1.7.1/lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+	<!-- 应用名称 -->
+	<property name="appName" value="${ant.project.name}" />
+	<!-- SDK目录(获取操作系统环境变量ANDROID_SDK_HOME的值) -->
+	<property name="sdk-folder" value="G:/tool/android_eclipse/sdk-4.0/android-sdk-windows" />
+	<!-- SDK指定平台目录 -->
+	<property name="sdk-platform-folder" value="${sdk-folder}/platform-tools" />
+	<!-- SDK中tools目录 -->
+	<property name="sdk-tools" value="G:/tool/android_eclipse/sdk-4.0/android-sdk-windows/tools" />
+	<!-- SDK指定平台中tools目录 -->
+	<property name="sdk-platform-tools" value="${sdk-platform-folder}/platform-tools" />
+
+
+	<!-- 使用到的命令(当前系统为windows,如果系统为linux,可将.bat文件替换成相对应的命令) -->
+	<property name="aapt" value="${sdk-platform-folder}/aapt" />
+	<property name="aidl" value="${sdk-platform-folder}/aidl" />
+	<property name="dx" value="${sdk-platform-folder}/dx.bat" />
+	<property name="apkbuilder" value="${sdk-tools}/apkbuilder.bat" />
+	<property name="jarsigner" value="D:/jdk6.0/jdk/bin/jarsigner" />
+	<property name="zipalign" value="${sdk-tools}/zipalign" />
+
+
+	<!-- 编译需要的jar; 如果项目使用到地图服务则需要maps.jar -->
+	<property name="android-jar" value="${sdk-folder}/platforms/android-17/android.jar" />
+	<property name="proguard-home" value="${sdk-tools}/proguard/lib" />
+	<!-- <property name="android-maps-jar" value="${sdk-folder}/add-ons/addon_google_apis_google_inc_8/libs/maps.jar" /> --> 
+	
+	<!-- 编译aidl文件所需的预处理框架文件framework.aidl -->
+	<property name="framework-aidl" value="${sdk-platform-folder}/framework.aidl" />
+	<!-- 清单文件 -->
+	<property name="manifest-xml" value="AndroidManifest.xml" />
+	<!-- 源文件目录 -->
+	<property name="resource-dir" value="res" />
+	<property name="asset-dir" value="assets" />
+	<!-- java源文件目录 -->
+	<property name="srcdir" value="src" />
+	<property name="srcdir-ospath" value="${basedir}/${srcdir}" />
+	<!-- 外部类库所在目录 -->
+	<property name="external-lib" value="libs" />
+	<property name="external-lib-ospath" value="${basedir}/${external-lib}" />
+	
+	
+	<property name="station_dir" value="station" />
+	<property name="station_file" value="${station_dir}/station.txt" />
+	
+	<!-- 
+	<property name="channelname" value="" />
+	 -->
+	<property name="channelkey" value="" />
+	<!-- 投注站编号，没有投注站时用00000000代替 -->
+	<!-- 00000000,12010005,12010002,12030001,12010007,12010008,12020001,12010009,12060001,12080001,12020002,12080002,10000001,12020003,12010010,12020004,
+				12080004,12080003,12080005,12010013,12010012,12010011,12070001,12020005,12080006,12040001 -->
+	<property name="key" value="12010005,12080004,12010013,12010012,12010011,12070001,12020005" />
+	
+	<!--循环打包 -->
+		<target name="deploy" depends="package-res-and-assets">
+			<foreach target="modify_station_file" list="${key}" param="nameandchannel" delimiter=",">
+			</foreach>
+		</target>
+		<target name="modify_station_file">
+			<!-- 获取渠道名字 -->
+			<!-- <propertyregex override="true" property="channelname" input="${nameandchannel}" regexp="(.*):" select="\1" /> -->
+			<!-- 获取渠道号码 -->
+			<propertyregex override="true" property="channelkey" input="${nameandchannel}" regexp="(.*)" select="\1" />
+			<condition property="isNormal">  
+			<!--如果arg1的值与arg2的值相等返回true，否则为false-->  
+				<equals arg1="${channelkey}" arg2="00000000" />  
+			</condition>
+			
+			<antcall target="isNormal" />
+			<antcall target="isNotNormal" />
+			
+		</target>
+		
+		<target name="isNormal" if="isNormal">
+		    <echo>站主ID为空....</echo>
+			<replaceregexp flags="g" byline="false" encoding="UTF-8">
+				<regexp pattern='stationId="[0-9]{8}"' />
+				<substitution expression='stationId=""' />
+				<fileset dir="" includes="${station_file}" />
+			</replaceregexp>
+			 <antcall target="release" />
+		</target>
+		
+		<target name="isNotNormal" unless="isNormal">
+		    <echo>站主ID为${channelkey} ....</echo>
+			<replaceregexp flags="g" byline="false" encoding="UTF-8">
+				<regexp pattern='stationId="[0-9]{8}"' />
+				<substitution expression='stationId="${channelkey}"' />
+				<fileset dir="" includes="${station_file}" />
+			</replaceregexp>
+			<replaceregexp flags="g" byline="false" encoding="UTF-8">
+				<regexp pattern='stationId=""' />
+				<substitution expression='stationId="${channelkey}"' />
+				<fileset dir="" includes="${station_file}" />
+			</replaceregexp>
+			<!-- 
+			<antcall target="zipalign" />
+			 -->
+			 <antcall target="release" />
+		</target>
+	
+	<!-- 打包完成，删除无用目录 -->
+	<target name="deleteCommonFolder" depends="deploy">
+	    <echo>删除临时文件${outdir-bin}</echo>
+	    <delete dir="${outdir-bin}" />
+	</target>
+		
+		
+	<!-- 生成通用文件的目录 -->
+	<target name="createCommonFolder">
+		<echo>生成通用文件的目录</echo>
+		<echo>生成R文件的相对目录</echo>
+		<var name="outdir-gen" value="gen" />
+		<echo>编译后的文件放置目录</echo>
+		<var name="outdir-bin" value="apks/compileFiles" />
+		<echo>生成class目录</echo>
+		<var name="outdir-classes" value="${outdir-bin}/classes" />
+		<var name="outdir-classes-ospath" value="${basedir}/${outdir-classes}" />
+
+		<!-- classes.dex相关变量 -->
+		<var name="dex-file" value="classes.dex" />
+		<var name="dex-path" value="${outdir-bin}/${dex-file}" />
+		<var name="dex-ospath" value="${basedir}/${dex-path}" />
+
+
+		<!-- 证书文件 -->
+		<var name="keystore-file" value="${basedir}/myView.keystore" />
+		
+		<!-- 临时apk -->
+		<var name="temp_apk" value="${outdir-bin}/resource.apk" />
+		
+		<delete dir="${outdir-bin}" />
+		<mkdir dir="${outdir-bin}" />
+		<mkdir dir="${outdir-classes}" />
+	</target>
+	<!-- 根据工程中的资源文件生成R.java文件  -->
+	<target name="generate-R-file" depends="createCommonFolder">
+		<echo>生成R.java文件....</echo>
+		<exec executable="${aapt}" failonerror="true">
+			<arg value="package" />
+			<arg value="-f" />
+			<arg value="-m" />
+			<arg value="-J" />
+			<arg value="${outdir-gen}" />
+			<arg value="-S" />
+			<arg value="${resource-dir}" />
+			<arg value="-M" />
+			<arg value="${manifest-xml}" />
+			<arg value="-I" />
+			<arg value="${android-jar}" />
+		</exec>
+	</target>
+	<!-- 编译aidl文件 -->
+	<target name="aidl" depends="generate-R-file">
+		<echo>编译aidl文件....</echo>
+		<apply executable="${aidl}" failonerror="true">
+			<!-- 指定预处理文件 -->
+			<arg value="-p${framework-aidl}" />
+			<!-- aidl声明的目录 -->
+			<arg value="-I${srcdir}" />
+			<!-- 目标文件目录 -->
+			<arg value="-o${outdir-gen}" />
+			<!-- 指定哪些文件需要编译 -->
+			<fileset dir="${srcdir}">
+				<include name="**/*.aidl" />
+			</fileset>
+		</apply>
+	</target>
+	<!-- 将工程中的java源文件编译成class文件 -->
+	<target name="compile_java_file" depends="aidl">
+		<echo>java源文件编译成class文件....</echo>
+		<javac encoding="utf-8" target="1.6" srcdir="." destdir="${outdir-classes}" bootclasspath="${android-jar}" failonerror="true">
+			<compilerarg line="-encoding UTF-8 " />
+			<classpath>
+				<fileset dir="${external-lib}" includes="*.jar" />
+			</classpath>
+		</javac>
+	</target>
+	<!--执行代码混淆-->
+	<target name="optimize" depends="compile_java_file">
+		<jar basedir="${outdir-classes}" destfile="temp.jar"/>
+		<java jar="${proguard-home}/proguard.jar" fork="true" failonerror="true">
+			<jvmarg value="-Dmaximum.inlined.code.length=32"/>
+			<arg value="-injars temp.jar"/>
+			<arg value="-outjars optimized.jar"/>
+			<arg value="-libraryjars ${android-jar}"/>		
+			<arg value="-libraryjars ${external-lib}/"/>
+			
+			<arg value="-dontpreverify"/>
+			<arg value="-dontoptimize"/>
+			<arg value="-dontusemixedcaseclassnames"/>
+			<arg value="-repackageclasses ''"/>
+			<arg value="-allowaccessmodification"/>
+
+			<arg value="@proguard.cfg"/>
+			
+			<arg value="-optimizationpasses 7"/>
+			<arg value="-verbose"/>
+			<arg value="-dontskipnonpubliclibraryclasses"/>
+			<arg value="-dontskipnonpubliclibraryclassmembers"/>
+		</java>
+		<delete file="temp.jar"/>
+		<delete dir="${outdir-classes}"/>
+		<mkdir dir="${outdir-classes}"/>
+		<unzip src="optimized.jar" dest="${outdir-classes}"/>
+		<delete file="optimized.jar"/>
+	</target>
+	<target name="create_dex" depends="optimize"  unless="do.not.compile">
+		<echo>将.class文件转化成.dex文件....</echo>
+		<exec executable="${dx}" failonerror="true">
+			<arg value="--dex" />
+			<!-- 输出文件 -->
+			<arg value="--output=${dex-ospath}" />
+			<!-- 要生成.dex文件的源classes和libraries -->
+			<arg value="${outdir-classes-ospath}" />
+			<arg value="${external-lib-ospath}" />
+		</exec>
+	</target> 
+	<!-- 将资源文件放进输出目录 -->
+	<target name="package-res-and-assets" depends="create_dex">
+		<echo>将资源文件放进输出目录....</echo>
+		<exec executable="${aapt}" failonerror="true">
+			<arg value="package" />
+			<arg value="-f" />
+			<arg value="-M" />
+			<arg value="${manifest-xml}" />
+			<arg value="-S" />
+			<arg value="${resource-dir}" />
+			<arg value="-A" />
+			<arg value="${asset-dir}" />
+			<arg value="-I" />
+			<arg value="${android-jar}" />
+			<arg value="-F" />
+			<arg value="${temp_apk}" />
+		</exec>
+	</target>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+			
+	
+	<!-- 初始化工作 -->
+	<target name="start_single">
+		<echo>目录初始化....</echo>
+		<var name="apk_dir" value="apks/${channelkey}" />
+
+		<!-- 经过aapt生成的资源包文件 -->
+		<var name="resources-package" value="${apk_dir}/resource.apk" />
+		<var name="resources-package-ospath" value="${basedir}/${resources-package}" />
+		
+		
+		<!-- 未认证apk包 -->
+		<var name="out-unsigned-package" value="${apk_dir}/${appName}-unsigned.apk" />
+		<var name="out-unsigned-package-ospath" value="${basedir}/${out-unsigned-package}" />
+
+		
+		<!-- 已认证apk包 -->
+		<var name="out-signed-package" value="${apk_dir}/${appName}_${channelkey}_${version}.apk" />
+		<var name="out-signed-package-ospath" value="${basedir}/${out-signed-package}" />
+		<delete dir="${apk_dir}" />
+		<mkdir dir="${apk_dir}" />
+	</target>
+
+	
+	
+	<target name="copy_apk" depends="start_single">
+	    <echo>copy临时${temp_apk}到目标文件${resources-package}</echo>
+		<copy todir="${apk_dir}" file="${temp_apk}" />
+	    
+    </target>
+	
+	<!-- 拷贝定制文件 -->
+	<target name="package-station_file" depends="copy_apk">
+		<echo>将文件${station_file}添加到${resources-package}中....</echo>
+		<echo>${resources-package}</echo>
+		<exec executable="${aapt}" failonerror="true">
+			<arg value="a" />
+			<arg value="-v" />
+			<arg value="${resources-package}" />
+			<arg value="${station_file}" />
+		</exec>
+	</target>
+
+
+	<!-- 打包成未签证的apk -->
+	<target name="package" depends="package-station_file">
+		<echo>打包成未签证的apk....</echo>
+		<exec executable="${apkbuilder}" failonerror="true">
+			<arg value="${out-unsigned-package-ospath}" />
+			<arg value="-u" />
+			<arg value="-z" />
+			<arg value="${resources-package-ospath}" />
+			<arg value="-f" />
+			<arg value="${dex-ospath}" />
+			<arg value="-rf" />
+			<arg value="${srcdir-ospath}" />
+		</exec>
+	</target>
+
+
+	<!-- 对apk进行签证 -->
+	<target name="jarsigner" depends="package">
+		<echo>APK签名...</echo>
+		<exec executable="${jarsigner}" failonerror="true">
+			<arg value="-keystore" />
+			<arg value="${keystore-file}" />
+			<arg value="-storepass" />
+			<arg value="myview" />
+			<arg value="-keypass" />
+			<arg value="myview" />
+			<arg value="-signedjar" />
+			<arg value="${out-signed-package-ospath}" />
+			<arg value="${out-unsigned-package-ospath}" />
+			<!-- 证书的别名 -->
+			<arg value="andy" />
+		</exec>
+	</target>
+
+
+	<!-- 发布 -->
+	<target name="release" depends="jarsigner">
+		<!-- 删除未签证apk -->
+		<delete file="${out-unsigned-package-ospath}" />
+		<echo>APK is released. path:${out-signed-package-ospath}</echo>
+		 <echo>删除其他文件，最后只保留apk</echo>  
+		<delete file="${resources-package-ospath}" />
+		<echo>生成apk完成</echo>
+	</target>
+</project>

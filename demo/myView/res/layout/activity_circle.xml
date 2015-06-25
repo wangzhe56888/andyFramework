@@ -1,0 +1,86 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circle="http://schemas.android.com/apk/res/com.andy.myself"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:background="@color/background_color"
+    >
+    <include 
+        android:id="@+id/title_id"
+        layout="@layout/common_layout_title"
+        />
+    <TextView
+        android:id="@+id/show_selected_item_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/red"
+        />
+    
+    <com.andy.view.circlelayout.CircleLayout
+        android:id="@+id/circle_layout_id"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        circle:firstChildPosition="South" 
+        circle:rotateToCenter="true" 
+        circle:isRotating="true"
+        android:layout_below="@id/title_id"
+        android:layout_above="@id/show_selected_item_id"
+        >
+        <com.andy.view.circlelayout.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nba_bobcat_icon"
+            circle:name="@string/nba_bobcat" />
+
+        <com.andy.view.circlelayout.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nba_bucks_icon"
+            circle:name="@string/nba_bucks" />
+        <com.andy.view.circlelayout.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nba_bulls_icon"
+            circle:name="@string/nba_bulls" />
+<!-- 
+        <com.andy.view.circlelayout.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nba_grizzly_icon"
+            circle:name="@string/nba_grizzly" />
+ -->
+
+        <com.andy.view.circlelayout.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nba_maverick_icon"
+            circle:name="@string/nba_maverick" />
+        
+        <com.andy.view.circlelayout.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nba_raptor_icon"
+            circle:name="@string/nba_raptor" />
+        
+        <com.andy.view.circlelayout.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/nba_wolves_icon"
+            circle:name="@string/nba_wolves" />
+        
+    </com.andy.view.circlelayout.CircleLayout>
+    
+    <ImageView 
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/nba_okc_icon"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>
