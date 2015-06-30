@@ -476,6 +476,7 @@ public class AndyBitmap {
 	}
 	
 	
+	@SuppressWarnings("deprecation")
 	private void doDisplay(View imageView, String uri, AndyBitmapDisplayConfig displayConfig) {
 		if (!mInit) {
 			init();

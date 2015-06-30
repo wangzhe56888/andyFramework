@@ -70,6 +70,7 @@ public class AndyAppUtil {
 	 * @param content
 	 * @param intent
 	 */
+	@SuppressWarnings("deprecation")
 	public static void showNotification(Context context, int id, int icon, String ticker, String title, String content,
 			Intent intent) {
 		NotificationManager notificationManager = (NotificationManager) context

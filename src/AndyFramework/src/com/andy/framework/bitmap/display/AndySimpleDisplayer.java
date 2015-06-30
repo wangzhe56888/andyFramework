@@ -32,6 +32,7 @@ public class AndySimpleDisplayer implements AndyDisplayer {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void loadFailDisplay(View imageView, Bitmap bitmap) {
 		if (imageView instanceof ImageView) {
@@ -44,6 +45,7 @@ public class AndySimpleDisplayer implements AndyDisplayer {
 	/**
 	 * 默认显示动画
 	 * */
+	@SuppressWarnings("deprecation")
 	private void displayWithFadeIn(View imageView, Bitmap bitmap) {
 		Drawable[] drawables = new Drawable[] {
 				new ColorDrawable(android.R.color.transparent),
@@ -61,6 +63,7 @@ public class AndySimpleDisplayer implements AndyDisplayer {
 	/**
 	 * 自定义显示动画
 	 * */
+	@SuppressWarnings("deprecation")
 	private void displayWithAnimation(View imageView, Bitmap bitmap, Animation animation) {
 		animation.setStartTime(AnimationUtils.currentAnimationTimeMillis());		
         if (imageView instanceof ImageView) {

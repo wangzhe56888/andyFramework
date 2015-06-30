@@ -1,7 +1,6 @@
 package com.andy.framework.http;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
@@ -35,7 +34,6 @@ public class AndyFileReaderHandler {
 	 * @param isResume 是否断点续传
 	 * @throws IOException 
 	 * */
-	@SuppressWarnings("resource")
 	public Object readData(HttpEntity entity, AndyEntityCallBack callBack, String path, boolean isResume) throws IOException {
 		if (TextUtils.isEmpty(path) || path.trim().length() == 0) {
 			return null;

@@ -60,6 +60,7 @@ public class AndyBitmapUtil {
      * @param path
      * @return
      */
+	@SuppressWarnings("deprecation")
 	public static long getUsableSpace(File path) {
     	try {
     		 final StatFs stats = new StatFs(path.getPath());
