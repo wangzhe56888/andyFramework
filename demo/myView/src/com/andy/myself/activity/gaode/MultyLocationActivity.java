@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.amap.api.location.AMapLocation;
@@ -29,6 +30,8 @@ public class MultyLocationActivity extends Activity implements LocationSource,
 	private LocationManagerProxy mAMapLocationManager;
 	private RadioGroup mGPSModeGroup;
 
+	private TextView locationTextView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,6 +52,8 @@ public class MultyLocationActivity extends Activity implements LocationSource,
 		}
 		mGPSModeGroup = (RadioGroup) findViewById(R.id.gps_radio_group);
 		mGPSModeGroup.setOnCheckedChangeListener(this);
+		
+		locationTextView = (TextView) findViewById(R.id.location_text);
 	}
 
 	/**
@@ -147,9 +152,17 @@ public class MultyLocationActivity extends Activity implements LocationSource,
 			if (amapLocation != null
 					&& amapLocation.getAMapException().getErrorCode() == 0) {
 				mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
-				Log.e("位置", "getPoiName = " + amapLocation.getPoiName());
+				
+				StringBuffer stringBuffer = new StringBuffer();
+				stringBuffer.append("当前位置：");
+//				stringBuffer.append(amapLocation.getProvince());
+//				stringBuffer.append(amapLocation.getCity());
+				stringBuffer.append(amapLocation.getAddress());
+				stringBuffer.append("\nPOI:").append(amapLocation.getPoiName());
+				locationTextView.setText(stringBuffer.toString());
 			} else {
 				Log.e("AmapErr","Location ERR:" + amapLocation.getAMapException().getErrorCode());
+				locationTextView.setText("定位失败");
 			}
 		}
 	}

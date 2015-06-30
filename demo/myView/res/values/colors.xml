@@ -8,7 +8,7 @@
     
     
     <!-- 半透明 -->
-    <color name="color_translucent">#e0000000</color>
+    <color name="color_translucent">#a0000000</color>
     <color name="durationtext">#ff7d7d7d</color>
     
     <color name="white">#ffffffff</color>
@@ -19,7 +19,7 @@
     <color name="higtlight">#ff0078f0</color>
     <color name="yellow">#ffffcc00</color>
     
-    <color name="grey"> #ebebeb</color>
-    <color name="darkgrey"> #C0C0C0</color>
-    <color name="darkyellow"> #FFCC33</color>
+    <color name="grey">#ebebeb</color>
+    <color name="darkgrey">#C0C0C0</color>
+    <color name="darkyellow">#FFCC33</color>
 </resources>

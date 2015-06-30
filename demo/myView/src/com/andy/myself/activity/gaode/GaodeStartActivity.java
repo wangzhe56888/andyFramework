@@ -2,19 +2,17 @@ package com.andy.myself.activity.gaode;
 
  
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.amap.api.location.LocationManagerProxy;
 import com.andy.myself.R;
+import com.andy.myself.base.BaseActivity;
 /**
- * Demo首页
+ * 高德地图首页
  * */
-public class GaodeStartActivity extends Activity implements OnClickListener {
+public class GaodeStartActivity extends BaseActivity {
 	private TextView mCurrentWeatherReportTextView;// 实时天气预报
 	private TextView mFutureWeatherReportTextView;// 未来三天天气预报
 	private TextView mNetLocationTextView;// 网络定位
@@ -26,13 +24,13 @@ public class GaodeStartActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_gaode_start);
-		setTitle("定位SDK " + LocationManagerProxy.getVersion());
-		initView();
+//		setTitle("定位SDK " + LocationManagerProxy.getVersion());
+		initView(savedInstanceState);
 	}
-/**
- * 初始化控件
- * */
-	private void initView() {
+	
+	@Override
+	protected void initView(Bundle savedInstanceState) {
+		super.initView(savedInstanceState);
 		mCurrentWeatherReportTextView = (TextView) findViewById(R.id.current_weather_report_text);
 		mFutureWeatherReportTextView = (TextView) findViewById(R.id.future_weather_report_text);
 		mNetLocationTextView = (TextView) findViewById(R.id.location_net_method_text);
@@ -46,11 +44,11 @@ public class GaodeStartActivity extends Activity implements OnClickListener {
 		mMultyLocationTextView.setOnClickListener(this);
 		mGpsLocationTextView.setOnClickListener(this);
 		mGeoFenceTextView.setOnClickListener(this);
-		
 	}
 
 	@Override
 	public void onClick(View view) {
+		super.onClick(view);
 		switch (view.getId()) {
 		case R.id.current_weather_report_text:
 			//实时天气预报
@@ -82,9 +80,6 @@ public class GaodeStartActivity extends Activity implements OnClickListener {
 			Intent geoFenceIntent=new Intent(GaodeStartActivity.this,GeoFenceActivity.class);
 		    startActivity(geoFenceIntent);
 			break;
-
 		}
-
 	}
-
 }
