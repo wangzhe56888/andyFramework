@@ -29,7 +29,7 @@ import com.andy.myself.activity.ExpandableLVActivity;
 import com.andy.myself.activity.GifViewActivity;
 import com.andy.myself.activity.GroupListView;
 import com.andy.myself.activity.InstallActivity;
-import com.andy.myself.activity.LocationActivity;
+import com.andy.myself.activity.LocationBaiduActivity;
 import com.andy.myself.activity.NetWorkStateActivity;
 import com.andy.myself.activity.SlidingActivity;
 import com.andy.myself.activity.SurfaceViewActivity;
@@ -40,6 +40,7 @@ import com.andy.myself.activity.WebViewActivity;
 import com.andy.myself.activity.andyframework.AndyBitmapActivity;
 import com.andy.myself.activity.andyframework.AndyHttpActivity;
 import com.andy.myself.activity.animation.AnimationActivity;
+import com.andy.myself.activity.gaode.GaodeStartActivity;
 import com.andy.myself.activity.resideLayout.ResideLayoutActivity;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfInstalled;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfSystem;
@@ -75,7 +76,8 @@ public class StartActivity extends BaseActivity implements OnItemClickListener{
 			R.string.activity_validate_title, ValidateActivity.class.getName(),
 			R.string.activity_animation_title, AnimationActivity.class.getName(),
 			R.string.activity_surfaceview_title, SurfaceViewActivity.class.getName(),
-			R.string.activity_location_title, LocationActivity.class.getName()
+			R.string.activity_location_title, LocationBaiduActivity.class.getName(),
+			R.string.activity_location_gaode_title, GaodeStartActivity.class.getName()
 		};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

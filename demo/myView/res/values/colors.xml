@@ -18,4 +18,8 @@
     <color name="red">#ffff0000</color>
     <color name="higtlight">#ff0078f0</color>
     <color name="yellow">#ffffcc00</color>
+    
+    <color name="grey"> #ebebeb</color>
+    <color name="darkgrey"> #C0C0C0</color>
+    <color name="darkyellow"> #FFCC33</color>
 </resources>

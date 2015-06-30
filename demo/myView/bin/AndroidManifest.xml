@@ -96,7 +96,16 @@
         <activity android:name=".activity.ValidateActivity"/>
         <activity android:name=".activity.animation.AnimationActivity"/>
         <activity android:name=".activity.SurfaceViewActivity"/>
-        <activity android:name=".activity.LocationActivity"/>
+        <activity android:name=".activity.LocationBaiduActivity"/>
+        
+        <activity android:name=".activity.gaode.GaodeStartActivity"/>
+        <activity android:name=".activity.gaode.CurrentWeatherReportActivity"/>
+        <activity android:name=".activity.gaode.FutureWeatherReportActivity"/>
+        <activity android:name=".activity.gaode.NetLocationActivity"/>
+        <activity android:name=".activity.gaode.MultyLocationActivity"/>
+		<activity android:name=".activity.gaode.GeoFenceActivity"/>
+		<activity android:name=".activity.gaode.GPSLocationActivity"/>
+        
         
         <!-- 监听app安装更新卸载 -->
         <receiver android:name=".activity.AppInstallReceiver"
@@ -124,5 +133,10 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
+        
+        <!-- 高德地图 配置  value为appkey-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="936052e77550b6a80140629fb24a70ec" />
     </application>
 </manifest>
