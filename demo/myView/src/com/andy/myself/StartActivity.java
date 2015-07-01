@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.app.ExpandableListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,6 +45,7 @@ import com.andy.myself.activity.systemAppInfo.GetApplicationOfInstalled;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfSystem;
 import com.andy.myself.base.BaseActivity;
 import com.andy.myself.util.PromptUtil;
+
 public class StartActivity extends BaseActivity implements OnItemClickListener{
 
 	private final String KEY_MENU_NAME = "menu_name";

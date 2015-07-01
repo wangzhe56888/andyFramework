@@ -1,6 +1,9 @@
 package com.andy.myself.activity.gaode;
 
+import java.util.List;
+
 import android.app.Activity;
+import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,10 +16,20 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.LocationManagerProxy;
 import com.amap.api.location.LocationProviderProxy;
+import com.amap.api.mapcore.q;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.overlay.PoiOverlay;
+import com.amap.api.services.core.AMapException;
+import com.amap.api.services.core.LatLonPoint;
+import com.amap.api.services.core.PoiItem;
+import com.amap.api.services.poisearch.PoiItemDetail;
+import com.amap.api.services.poisearch.PoiResult;
+import com.amap.api.services.poisearch.PoiSearch;
+import com.amap.api.services.poisearch.PoiSearch.OnPoiSearchListener;
+import com.amap.api.services.poisearch.PoiSearch.SearchBound;
 import com.andy.myself.R;
 
 /**
@@ -32,11 +45,15 @@ public class MultyLocationActivity extends Activity implements LocationSource,
 
 	private TextView locationTextView;
 	
+	private Context mContext;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);// 不显示程序的标题栏
 		setContentView(R.layout.activity_multy_location);
+		
+		mContext = this;
+		
 		mapView = (MapView) findViewById(R.id.map);
 		mapView.onCreate(savedInstanceState);// 此方法必须重写
 		init();
@@ -160,6 +177,66 @@ public class MultyLocationActivity extends Activity implements LocationSource,
 				stringBuffer.append(amapLocation.getAddress());
 				stringBuffer.append("\nPOI:").append(amapLocation.getPoiName());
 				locationTextView.setText(stringBuffer.toString());
+				
+				
+				// 附近POI搜索
+				// 第一个参数表示搜索字符串，第二个参数表示POI搜索类型，二选其一
+				// 第三个参数表示POI搜索区域的编码，必设
+				final PoiSearch.Query query = new PoiSearch.Query("", "", amapLocation.getCityCode());
+				query.setPageSize(5);
+				query.setPageNum(0);
+				
+				final PoiSearch poiSearch = new PoiSearch(mContext, query);
+				
+				LatLonPoint latLonPoint = new LatLonPoint(amapLocation.getLatitude(), amapLocation.getLongitude());
+				
+				poiSearch.setBound(new SearchBound(latLonPoint, 1000));
+				
+				poiSearch.setOnPoiSearchListener(new OnPoiSearchListener() {
+					@Override
+					public void onPoiSearched(PoiResult result, int rCode) {
+						if (rCode != 0) {
+							return;
+						}
+						if (result == null || result.getQuery() == null) {
+							return;
+						}
+						// 是否是同一条
+						if (result.getQuery().equals(query)) {
+							List<PoiItem> poiItems = result.getPois();
+							
+							StringBuffer stringBuffer = new StringBuffer("\n附近POI：");
+							for (PoiItem item : poiItems) {
+								//Poi深度搜索
+//								poiSearch.searchPOIDetailAsyn(item.getPoiId());
+								stringBuffer.append(item.toString()).append(" ; ");
+							}
+							
+							String text = locationTextView.getText().toString();
+							locationTextView.setText(text + stringBuffer.toString());
+							
+//							if (poiItems != null && poiItems.size() > 0) {
+//			                    aMap.clear();//清理之前的图标
+//			                    PoiOverlay poiOverlay = new PoiOverlay(aMap, poiItems);
+//			                    poiOverlay.removeFromMap();
+//			                    poiOverlay.addToMap();
+//			                    poiOverlay.zoomToSpan();
+//			                }
+						}
+					}
+					
+					@Override
+					public void onPoiItemDetailSearched(PoiItemDetail poiItemDetail, int arg1) {
+//						String detailString = "";
+//						if (arg1 == 0) {
+//							detailString = "\n附近POI：";
+//						}
+//						detailString += poiItemDetail.getAdName();
+//						String text = locationTextView.getText().toString();
+//						locationTextView.setText(text + detailString);
+					}
+				});
+				poiSearch.searchPOIAsyn();
 			} else {
 				Log.e("AmapErr","Location ERR:" + amapLocation.getAMapException().getErrorCode());
 				locationTextView.setText("定位失败");
