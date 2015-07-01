@@ -186,6 +186,8 @@ public class MultyLocationActivity extends Activity implements LocationSource,
 				query.setPageSize(5);
 				query.setPageNum(0);
 				
+				
+				// 周边搜索
 				final PoiSearch poiSearch = new PoiSearch(mContext, query);
 				
 				LatLonPoint latLonPoint = new LatLonPoint(amapLocation.getLatitude(), amapLocation.getLongitude());
