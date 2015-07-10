@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+	<include 
+        android:id="@+id/title_id"
+        layout="@layout/common_layout_title"
+        />
+    <com.andy.myself.activity.dragGridView.DragGridView
+        android:id="@+id/drag_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:horizontalSpacing="14dip"
+        android:numColumns="3"
+        android:scrollbars="vertical"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="14.0px"
+        android:layout_below="@id/title_id"
+        />
+</RelativeLayout>
