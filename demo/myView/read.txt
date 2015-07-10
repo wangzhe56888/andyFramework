@@ -1,8 +1,0 @@
-工程说明：
-
-1. 本工程主要是自定义控件的编写
-2. 自定义控件全部在com.andy.view目录下面
-3. layout中Activity的布局以activit_XXXX命名
-	共同的布局以common_XXXX命名
-	自定义控件的布局以andy_XXX命名
-	其他命名方式类似

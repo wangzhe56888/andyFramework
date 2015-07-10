@@ -105,6 +105,7 @@
         <activity android:name=".activity.gaode.MultyLocationActivity"/>
 		<activity android:name=".activity.gaode.GeoFenceActivity"/>
 		<activity android:name=".activity.gaode.GPSLocationActivity"/>
+		<activity android:name=".activity.dragGridView.DragGridViewActivity"/>
         
         
         <!-- 监听app安装更新卸载 -->

@@ -39,6 +39,7 @@ import com.andy.myself.activity.WebViewActivity;
 import com.andy.myself.activity.andyframework.AndyBitmapActivity;
 import com.andy.myself.activity.andyframework.AndyHttpActivity;
 import com.andy.myself.activity.animation.AnimationActivity;
+import com.andy.myself.activity.dragGridView.DragGridViewActivity;
 import com.andy.myself.activity.gaode.GaodeStartActivity;
 import com.andy.myself.activity.resideLayout.ResideLayoutActivity;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfInstalled;
@@ -77,7 +78,8 @@ public class StartActivity extends BaseActivity implements OnItemClickListener{
 			R.string.activity_animation_title, AnimationActivity.class.getName(),
 			R.string.activity_surfaceview_title, SurfaceViewActivity.class.getName(),
 			R.string.activity_location_title, LocationBaiduActivity.class.getName(),
-			R.string.activity_location_gaode_title, GaodeStartActivity.class.getName()
+			R.string.activity_location_gaode_title, GaodeStartActivity.class.getName(),
+			R.string.activity_drag_gridview_title, DragGridViewActivity.class.getName()
 		};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

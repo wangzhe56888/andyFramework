@@ -31,6 +31,7 @@
     <string name="activity_surfaceview_title">surfaceview测试</string>
     <string name="activity_location_title">百度地理位置</string>
     <string name="activity_location_gaode_title">高德地理位置</string>
+    <string name="activity_drag_gridview_title">拖拽换位</string>
 
     <string name="nba_bulls">公牛</string>
     <string name="nba_bucks">雄鹿</string>

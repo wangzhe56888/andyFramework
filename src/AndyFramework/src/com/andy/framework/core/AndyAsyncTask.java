@@ -23,8 +23,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 拷贝 https://android.googlesource.com/platform/frameworks/base/+/jb-release/
  * core/java/android/os/AsyncTask.java
  * 修改了线程池属性，让并发线程按顺序执行
- * @author michael
- *
  * @param <Params>
  * @param <Progress>
  * @param <Result>
