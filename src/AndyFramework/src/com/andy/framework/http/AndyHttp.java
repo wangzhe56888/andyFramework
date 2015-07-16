@@ -353,6 +353,13 @@ public class AndyHttp {
     }
     
 //---------------------下载---------------------------------------
+    /**
+     * @param url： 下载地址
+     * @param params：请求参数
+     * @param target：保存路径
+     * @param isResume：是否断点续传
+     * @param callback：下载回调
+     * */
     public AndyHttpHandler<File> download(String url,String target,AndyHttpCallback<File> callback){
     	return download(url, null, target, false, callback);
     }
