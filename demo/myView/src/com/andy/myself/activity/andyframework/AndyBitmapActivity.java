@@ -2,9 +2,7 @@ package com.andy.myself.activity.andyframework;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +16,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.andy.framework.bitmap.AndyBitmap;
-import com.andy.framework.bitmap.display.AndyBitmapDisplayConfig;
 import com.andy.myself.R;
 import com.andy.myself.base.BaseActivity;
 

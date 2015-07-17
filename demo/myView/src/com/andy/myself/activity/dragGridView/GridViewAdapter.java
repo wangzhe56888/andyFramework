@@ -6,7 +6,6 @@ import java.util.List;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.andy.framework.view.draggridview.AndyDragGridViewAdapter;
@@ -58,18 +57,16 @@ public class GridViewAdapter extends AndyDragGridViewAdapter {
 	@Override
 	public void onHideView(int position) {
 		super.onHideView(position);
-		notifyDataSetChanged();
 	}
 
 	@Override
 	public void onShowHideView() {
 		super.onShowHideView();
-		notifyDataSetChanged();
 	}
 
 	@Override
 	public void onDraggingView(int draggedPos, int destPos) {
-		super.onDraggingView(draggedPos, destPos);
+		
 		//从前向后拖动，其他item依次前移
         if(draggedPos < destPos) {
             strList.add(destPos+1, getItem(draggedPos));
@@ -80,13 +77,12 @@ public class GridViewAdapter extends AndyDragGridViewAdapter {
             strList.add(destPos, getItem(draggedPos));
             strList.remove(draggedPos+1);
         }
-        hidePosition = destPos;
-        notifyDataSetChanged();
+        super.onDraggingView(draggedPos, destPos);
 	}
 
 	@Override
 	public void onRemoveView(int position) {
 		strList.remove(position);
-        notifyDataSetChanged();
+		super.onRemoveView(position);
 	}
 }
