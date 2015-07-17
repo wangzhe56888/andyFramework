@@ -7,7 +7,7 @@
         android:id="@+id/title_id"
         layout="@layout/common_layout_title"
         />
-    <com.andy.myself.activity.dragGridView.DragGridView
+    <com.andy.framework.view.draggridview.AndyDragItemGridView
         android:id="@+id/drag_grid_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

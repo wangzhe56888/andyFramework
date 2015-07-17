@@ -1,19 +1,19 @@
 package com.andy.myself.activity.dragGridView;
 
 
+import java.util.List;
+
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.List;
+import com.andy.framework.view.draggridview.AndyDragGridViewAdapter;
 
-public class GridViewAdapter extends BaseAdapter {
+public class GridViewAdapter extends AndyDragGridViewAdapter {
     private Context context;
     private List<String> strList;
-    private int hidePosition = AdapterView.INVALID_POSITION;
 
     public GridViewAdapter(Context context, List<String> strList) {
         this.context = context;
@@ -55,24 +55,22 @@ public class GridViewAdapter extends BaseAdapter {
         return view;
     }
 
-    public void hideView(int pos) {
-        hidePosition = pos;
-        notifyDataSetChanged();
-    }
+	@Override
+	public void onHideView(int position) {
+		super.onHideView(position);
+		notifyDataSetChanged();
+	}
 
-    public void showHideView() {
-        hidePosition = AdapterView.INVALID_POSITION;
-        notifyDataSetChanged();
-    }
+	@Override
+	public void onShowHideView() {
+		super.onShowHideView();
+		notifyDataSetChanged();
+	}
 
-    public void removeView(int pos) {
-        strList.remove(pos);
-        notifyDataSetChanged();
-    }
-
-    //更新拖动时的gridView
-    public void swapView(int draggedPos, int destPos) {
-        //从前向后拖动，其他item依次前移
+	@Override
+	public void onDraggingView(int draggedPos, int destPos) {
+		super.onDraggingView(draggedPos, destPos);
+		//从前向后拖动，其他item依次前移
         if(draggedPos < destPos) {
             strList.add(destPos+1, getItem(draggedPos));
             strList.remove(draggedPos);
@@ -84,5 +82,11 @@ public class GridViewAdapter extends BaseAdapter {
         }
         hidePosition = destPos;
         notifyDataSetChanged();
-    }
+	}
+
+	@Override
+	public void onRemoveView(int position) {
+		strList.remove(position);
+        notifyDataSetChanged();
+	}
 }
