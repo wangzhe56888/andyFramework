@@ -2,6 +2,7 @@ package com.andy.framework.gifview;
 
 import java.io.InputStream;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -20,6 +21,7 @@ import android.view.View;
  * @mail: win58@qq.com
  * @date: 2015-6-8 下午2:58:25
  */
+@SuppressLint("HandlerLeak")
 public class AndyGifView extends View implements AndyGifParseListener {
 
 	/**
@@ -48,6 +50,7 @@ public class AndyGifView extends View implements AndyGifParseListener {
 	private boolean isRun = true;
 	private boolean pause = false;
 	private int showWidth = -1;
+	@SuppressWarnings("unused")
 	private int showHeight = -1;
 	private Rect rect = null;
 

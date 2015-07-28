@@ -18,6 +18,7 @@ import android.database.Cursor;
  */
 @SuppressWarnings("unchecked")
 public class AndyCursorUtils {
+	@SuppressWarnings("rawtypes")
 	public static <T> T getEntity(Cursor cursor, Class<T> clazz, AndyDB db) {
 		try {
 			if(cursor != null) {
@@ -85,7 +86,6 @@ public class AndyCursorUtils {
 		if (dbModel != null) {
 			HashMap<String, Object> dataMap = dbModel.getDataMap();
 			try {
-				@SuppressWarnings("unchecked")
 				T  entity = (T) clazz.newInstance();
 				for (Entry<String, Object> entry : dataMap.entrySet()) {
 					String column = entry.getKey();

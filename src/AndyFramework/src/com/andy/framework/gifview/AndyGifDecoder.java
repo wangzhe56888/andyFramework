@@ -39,6 +39,7 @@ public class AndyGifDecoder extends Thread {
 	private int bgIndex; // background color index
 	private int bgColor; // background color
 	private int lastBgColor; // previous bg color
+	@SuppressWarnings("unused")
 	private int pixelAspect; // pixel aspect ratio
 
 	private boolean lctFlag; // local color table flag

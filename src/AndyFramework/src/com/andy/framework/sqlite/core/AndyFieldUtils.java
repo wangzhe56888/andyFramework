@@ -1,12 +1,12 @@
 package com.andy.framework.sqlite.core;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.annotation.SuppressLint;
 import com.andy.framework.sqlite.annotation.AndyId;
 import com.andy.framework.sqlite.annotation.AndyManyToOne;
 import com.andy.framework.sqlite.annotation.AndyOneToMany;
@@ -19,6 +19,7 @@ import com.andy.framework.sqlite.annotation.AndyTransient;
  * @mail: win58@qq.com
  * @date: 2015-5-14  下午5:18:53
  */
+@SuppressLint({ "SimpleDateFormat", "DefaultLocale" })
 public class AndyFieldUtils {
 	public static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	

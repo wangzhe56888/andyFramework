@@ -383,6 +383,7 @@ public class AndySqlBuilder {
 	/**
 	 * manyToOne转换成keyvalue
 	 * */
+	@SuppressWarnings("rawtypes")
 	private static AndyKeyValue manyToOne2KeyValue(AndyManyToOne many , Object entity){
 		AndyKeyValue kv = null ;
 		String manycolumn = many.getColumn();

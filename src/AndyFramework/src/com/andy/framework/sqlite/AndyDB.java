@@ -7,14 +7,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.andy.framework.exception.AndySqliteException;
 import com.andy.framework.sqlite.core.AndyCursorUtils;
@@ -338,6 +335,7 @@ public class AndyDB {
 	 * @param <T>
 	 * @return
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public <T> T loadManyToOne(AndyDBModel dbModel, T entity, Class<T> clazz,
 			Class<?>... findClass) {
 		if (entity != null) {
@@ -366,7 +364,6 @@ public class AndyDB {
 						}
 						if (isFind) {
 
-							@SuppressWarnings("unchecked")
 							T manyEntity = (T) findById(Integer.valueOf(id.toString()), many.getManyClass());
 							if (manyEntity != null) {
 								if (many.getValue(entity).getClass() == AndyManyToOneLazyLoader.class) {
@@ -433,6 +430,7 @@ public class AndyDB {
 	 * @param <T>
 	 * @return
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public <T> T loadOneToMany(T entity, Class<T> clazz, Class<?>... findClass) {
 		if (entity != null) {
 			try {
