@@ -67,14 +67,21 @@
         android:theme="@style/AppTheme"
         android:name="com.andy.myself.AndyApplication">
         <activity
-            android:name="com.andy.myself.StartActivity"
-            android:label="@string/app_name" >
+            
+            android:name=".activity.LaunchActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         
+        <activity android:name=".StartActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".activity.CircleActivity"/>
         <activity android:name=".activity.DrawImageActivity"/>
         <activity android:name=".activity.AutoTextActivity"/>

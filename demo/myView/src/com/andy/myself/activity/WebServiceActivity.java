@@ -21,7 +21,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: WebService测试 soap协议
@@ -29,7 +29,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-5-13  下午5:35:44
  */
-public class WebServiceActivity extends BaseActivity {
+public class WebServiceActivity extends BaseHeaderActivity {
 	private final String WEBSERVICE_URL = "http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl";
 	private Button getButton;
 	private TextView resultTextView;

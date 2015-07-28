@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.andy.framework.bitmap.AndyBitmap;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: andy framework bitmap框架测试
@@ -25,7 +25,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-5-13  下午2:22:35
  */
-public class AndyBitmapActivity extends BaseActivity {
+public class AndyBitmapActivity extends BaseHeaderActivity {
 
 	private final String URL_IMG = "http://192.168.8.39:8080/AndroidService/img/";
 	

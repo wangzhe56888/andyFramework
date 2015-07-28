@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: 分组的listview，完全使用了listview的adapter进行分组，如果数据分组较多并且数据分组不固定是不便使用
@@ -21,7 +21,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-5-22  下午3:12:21
  */
-public class GroupListView extends BaseActivity {
+public class GroupListView extends BaseHeaderActivity {
 
 	private GroupListAdapter adapter = null;
     private ListView listView = null;

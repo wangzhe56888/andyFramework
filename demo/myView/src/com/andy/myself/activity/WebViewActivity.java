@@ -14,7 +14,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 import com.andy.view.webView.ProgressWebView;
 
 /**
@@ -26,7 +26,7 @@ import com.andy.view.webView.ProgressWebView;
  * nickname : Andy
  * @author wangys
  */
-public class WebViewActivity extends BaseActivity {
+public class WebViewActivity extends BaseHeaderActivity {
 
 	private ProgressWebView progressWebview;
 	private String url = "";

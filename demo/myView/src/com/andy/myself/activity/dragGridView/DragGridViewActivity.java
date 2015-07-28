@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.widget.GridView;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 
-public class DragGridViewActivity extends BaseActivity {
+public class DragGridViewActivity extends BaseHeaderActivity {
     private List<String> strList;
     private GridView gridView;
 

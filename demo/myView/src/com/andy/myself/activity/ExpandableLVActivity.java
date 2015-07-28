@@ -15,7 +15,7 @@ import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.TextView;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: 
@@ -23,7 +23,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-6-1  下午4:28:37
  */
-public class ExpandableLVActivity extends BaseActivity {
+public class ExpandableLVActivity extends BaseHeaderActivity {
 
 	private ExpandableListView elv;
 	@Override

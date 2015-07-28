@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * 项目名称 ： 
@@ -22,7 +22,7 @@ import com.andy.myself.base.BaseActivity;
  * nickname : Andy
  * @author wangys
  */
-public class DragViewActivity extends BaseActivity implements OnTouchListener {
+public class DragViewActivity extends BaseHeaderActivity implements OnTouchListener {
 	private Button btnOkc;
 	private View titleView, tipView;
 	private int lastX = 0, lastY = 0;

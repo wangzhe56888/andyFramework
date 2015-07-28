@@ -4,14 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 import com.andy.myself.util.PromptUtil;
 import com.andy.view.circlelayout.CircleImageView;
 import com.andy.view.circlelayout.CircleLayout;
 import com.andy.view.circlelayout.CircleLayout.OnCircleItemClickListener;
 import com.andy.view.circlelayout.CircleLayout.OnCircleItemSelectedListener;
 
-public class CircleActivity extends BaseActivity implements OnCircleItemSelectedListener, OnCircleItemClickListener{
+public class CircleActivity extends BaseHeaderActivity implements OnCircleItemSelectedListener, OnCircleItemClickListener{
 	private TextView selectedTextView;
 	private CircleLayout circleLayout;
 	@Override

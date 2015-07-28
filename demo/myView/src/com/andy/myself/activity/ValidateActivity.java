@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.andy.framework.util.AndyValidateUtil;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: 验证测试
@@ -16,7 +16,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-6-9  下午4:45:57
  */
-public class ValidateActivity extends BaseActivity {
+public class ValidateActivity extends BaseHeaderActivity {
 	
 	private TextView resultTextView;
 	private EditText validaText;

@@ -44,10 +44,10 @@ import com.andy.myself.activity.gaode.GaodeStartActivity;
 import com.andy.myself.activity.resideLayout.ResideLayoutActivity;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfInstalled;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfSystem;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 import com.andy.myself.util.PromptUtil;
 
-public class StartActivity extends BaseActivity implements OnItemClickListener{
+public class StartActivity extends BaseHeaderActivity implements OnItemClickListener{
 
 	private final String KEY_MENU_NAME = "menu_name";
 	private final String KEY_MENU_CLASS = "class";

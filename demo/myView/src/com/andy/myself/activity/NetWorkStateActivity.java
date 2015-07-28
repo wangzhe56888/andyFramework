@@ -11,7 +11,7 @@ import com.andy.framework.util.network.AndyNetworkStateReceiver;
 import com.andy.framework.util.network.AndyNetworkUtil;
 import com.andy.framework.util.network.AndyNetworkUtil.NetType;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: 网络状态相关测试
@@ -19,7 +19,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-6-9  下午1:56:58
  */
-public class NetWorkStateActivity extends BaseActivity {
+public class NetWorkStateActivity extends BaseHeaderActivity {
 	
 	private Button refreshBtn;
 	private TextView networkStateTV;

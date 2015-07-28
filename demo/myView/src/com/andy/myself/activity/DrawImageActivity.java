@@ -3,9 +3,9 @@ package com.andy.myself.activity;
 import android.os.Bundle;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
-public class DrawImageActivity extends BaseActivity {
+public class DrawImageActivity extends BaseHeaderActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

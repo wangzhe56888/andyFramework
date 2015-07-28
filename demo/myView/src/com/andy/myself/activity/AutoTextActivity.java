@@ -1,7 +1,7 @@
 package com.andy.myself.activity;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 import com.andy.view.textAnim.AutoTextView;
 import android.os.Bundle;
 import android.app.Activity;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class AutoTextActivity extends BaseActivity {
+public class AutoTextActivity extends BaseHeaderActivity {
  private Button mBtnNext;
  private Button mBtnPrev;
  private AutoTextView mTextView02;

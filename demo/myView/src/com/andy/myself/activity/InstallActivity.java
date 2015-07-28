@@ -10,7 +10,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * 项目名称 ： 
@@ -21,7 +21,7 @@ import com.andy.myself.base.BaseActivity;
  * nickname : Andy
  * @author wangys
  */
-public class InstallActivity extends BaseActivity {
+public class InstallActivity extends BaseHeaderActivity {
 
 	private TextView apkStates;
 	String filenameTemp = "/station/station.txt";

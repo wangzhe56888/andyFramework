@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.andy.framework.gifview.AndyGifView;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: GIF动画显示的控件测试
@@ -13,7 +13,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-6-9  上午9:56:47
  */
-public class GifViewActivity extends BaseActivity {
+public class GifViewActivity extends BaseHeaderActivity {
 	
 	private AndyGifView gifView, angelView;
 	

@@ -12,7 +12,7 @@ import android.view.SurfaceView;
 
 import com.andy.framework.util.AndyScreenUtil;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: SurfaceView测试
@@ -20,7 +20,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-6-16  上午11:20:29
  */
-public class SurfaceViewActivity extends BaseActivity {
+public class SurfaceViewActivity extends BaseHeaderActivity {
 
 	private SurfaceView surfaceView;
 	private SurfaceHolder surfaceHolder;

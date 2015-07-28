@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 /**
  * 高德地图首页
  * */
-public class GaodeStartActivity extends BaseActivity {
+public class GaodeStartActivity extends BaseHeaderActivity {
 	private TextView mCurrentWeatherReportTextView;// 实时天气预报
 	private TextView mFutureWeatherReportTextView;// 未来三天天气预报
 	private TextView mNetLocationTextView;// 网络定位

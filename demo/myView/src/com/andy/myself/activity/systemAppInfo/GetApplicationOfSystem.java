@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -19,7 +19,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class GetApplicationOfSystem extends BaseActivity implements OnItemClickListener {
+public class GetApplicationOfSystem extends BaseHeaderActivity implements OnItemClickListener {
     
     private ListView mListView;
     private ApplicationAdapter mAdapter;

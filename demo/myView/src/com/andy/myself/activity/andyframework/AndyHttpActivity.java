@@ -13,7 +13,7 @@ import com.andy.framework.http.AndyHttp;
 import com.andy.framework.http.AndyHttpCallback;
 import com.andy.framework.http.AndyRequestParams;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 import com.andy.myself.util.AndyLog;
 
 /**
@@ -22,7 +22,7 @@ import com.andy.myself.util.AndyLog;
  * @mail: win58@qq.com
  * @date: 2015-5-13  下午2:22:35
  */
-public class AndyHttpActivity extends BaseActivity {
+public class AndyHttpActivity extends BaseHeaderActivity {
 
 	private final String URL_HTTP = "http://192.168.8.39:8080/AndroidService/outputData";
 //	private final String URL_HTTP = "http://192.168.8.39:8080/AndroidService/img/1392601634709.jpg";

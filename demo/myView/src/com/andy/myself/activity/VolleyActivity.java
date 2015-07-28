@@ -21,7 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: Volley框架测试
@@ -29,7 +29,7 @@ import com.andy.myself.base.BaseActivity;
  * @mail: win58@qq.com
  * @date: 2015-4-15  下午12:56:49
  */
-public class VolleyActivity extends BaseActivity {
+public class VolleyActivity extends BaseHeaderActivity {
 	
 	private RequestQueue mRequestQueue;
 	private TextView volley_result_tv;

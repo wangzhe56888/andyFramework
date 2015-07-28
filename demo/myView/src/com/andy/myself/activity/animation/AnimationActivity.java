@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 import com.andy.myself.R;
 import com.andy.myself.activity.animation.MyAnimView.ColorEvaluator;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 
 /**
  * @description: Android动画测试
@@ -35,7 +35,7 @@ import com.andy.myself.base.BaseActivity;
  * @date: 2015-6-10  上午10:17:28
  */
 @SuppressLint("InflateParams")
-public class AnimationActivity extends BaseActivity {
+public class AnimationActivity extends BaseHeaderActivity {
 
 	private String[] menuStrings = {"ValueAnimator", "ObjectAnimator", "AnimatorSet", "XML配置", "ValueAnim高级", "ObjectAnim高级", "Interpolator"};
 	private GridView gridView;

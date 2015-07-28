@@ -19,7 +19,7 @@ import com.andy.framework.util.network.AndyNetworkStateReceiver;
 import com.andy.framework.util.network.AndyNetworkUtil;
 import com.andy.framework.util.network.AndyNetworkUtil.NetType;
 import com.andy.myself.R;
-import com.andy.myself.base.BaseActivity;
+import com.andy.myself.base.BaseHeaderActivity;
 import com.andy.myself.base.DefineProgressDialog;
 import com.andy.myself.util.PromptUtil;
 import com.baidu.location.BDLocation;
@@ -50,7 +50,7 @@ import com.baidu.location.LocationClientOption;
 	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 	<uses-permission android:name="android.permission.READ_LOGS"/>
  */
-public class LocationBaiduActivity extends BaseActivity {
+public class LocationBaiduActivity extends BaseHeaderActivity {
 	private Button refreshButton, commitButton;
 	private TextView networkStateTV, locationStateTV, deviceIdTV;
 	private DefineProgressDialog mProgress;
