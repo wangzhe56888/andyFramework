@@ -18,14 +18,14 @@ import android.app.Application;
 public class AndyApplication extends Application {
 
 	private List<Activity> activities = new LinkedList<Activity>();
-	private static AndyApplication instance = null;
-
-	public static AndyApplication getInstance() {
-		if (instance == null) {
-			instance = new AndyApplication();
-		}
-		return instance;
-	}
+//	private static AndyApplication instance = null;
+//
+//	public static AndyApplication getInstance() {
+//		if (instance == null) {
+//			instance = new AndyApplication();
+//		}
+//		return instance;
+//	}
 	
 	public void addActivity(Activity activity) {
 		if (activities != null && !activities.contains(activity)) {

@@ -9,17 +9,17 @@
         android:id="@+id/title_id"
         layout="@layout/common_layout_title"
         />
-    <com.andy.framework.gifview.AndyGifView
+    <com.andy.framework.view.gifview.AndyGifView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/andyGifView_id"
         android:layout_below="@id/title_id"
-        ></com.andy.framework.gifview.AndyGifView>
+        ></com.andy.framework.view.gifview.AndyGifView>
     
-    <com.andy.framework.gifview.AndyGifView
+    <com.andy.framework.view.gifview.AndyGifView
         android:id="@+id/andyGifView_angel_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/andyGifView_id"
-        ></com.andy.framework.gifview.AndyGifView>
+        ></com.andy.framework.view.gifview.AndyGifView>
 </RelativeLayout>

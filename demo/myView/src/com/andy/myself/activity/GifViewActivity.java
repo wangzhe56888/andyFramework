@@ -3,7 +3,7 @@ package com.andy.myself.activity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.andy.framework.gifview.AndyGifView;
+import com.andy.framework.view.gifview.AndyGifView;
 import com.andy.myself.R;
 import com.andy.myself.base.BaseHeaderActivity;
 
