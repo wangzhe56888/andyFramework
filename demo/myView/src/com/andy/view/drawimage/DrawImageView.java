@@ -5,18 +5,17 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.andy.myself.util.PromptUtil;
-import com.andy.view.drawimage.DrawImageDialog.DrawImageDialogListener;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
+
+import com.andy.myself.util.PromptUtil;
+import com.andy.view.drawimage.DrawImageDialog.DrawImageDialogListener;
 
 public class DrawImageView extends ImageView {
 
@@ -55,7 +54,8 @@ public class DrawImageView extends ImageView {
         public void onClick(View v) {
             DrawImageDialog writeTabletDialog = new DrawImageDialog(
                     context, new DrawImageDialogListener() {
-                        @Override
+                        @SuppressWarnings({ "unused", "deprecation" })
+						@Override
                         public void callback(Object object) {                            
                             mSignBitmap = (Bitmap) object;
                             imgPath = createFile();

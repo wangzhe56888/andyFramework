@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -101,6 +102,7 @@ public class StartActivity extends BaseHeaderActivity implements OnItemClickList
 		menuList.setOnItemClickListener(this);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View view, int arg2, long arg3) {
 		TextView classText = (TextView) view.findViewById(R.id.menu_class_path_id);
@@ -159,6 +161,7 @@ public class StartActivity extends BaseHeaderActivity implements OnItemClickList
 		return list;
 	}
 	
+	@SuppressLint({ "InflateParams", "ViewHolder" })
 	private class ActivityListAdapter extends BaseAdapter {
 
 		private List<Map<String, String>> dataList;

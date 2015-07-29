@@ -3,10 +3,6 @@ package com.andy.myself.activity.systemAppInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.andy.myself.R;
-import com.andy.myself.base.BaseHeaderActivity;
-
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +15,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+
+import com.andy.myself.R;
+import com.andy.myself.base.BaseHeaderActivity;
 
 public class GetApplicationOfInstalled extends BaseHeaderActivity implements OnItemClickListener {
     
@@ -44,7 +43,8 @@ public class GetApplicationOfInstalled extends BaseHeaderActivity implements OnI
         mListView.setAdapter(maAdapter);
     }
     
-    private List<PackageInfo> loadPackageInfo(Context context) {
+    @SuppressWarnings("static-access")
+	private List<PackageInfo> loadPackageInfo(Context context) {
         List<PackageInfo> apps = new ArrayList<PackageInfo>();
         PackageManager pm = context.getPackageManager();
         List<PackageInfo> packageList = pm.getInstalledPackages(0);

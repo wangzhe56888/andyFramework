@@ -1,10 +1,7 @@
 package com.andy.myself.activity.andyframework;
 
-import java.text.DecimalFormat;
-
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,7 +11,6 @@ import com.andy.framework.http.AndyHttpCallback;
 import com.andy.framework.http.AndyRequestParams;
 import com.andy.myself.R;
 import com.andy.myself.base.BaseHeaderActivity;
-import com.andy.myself.util.AndyLog;
 
 /**
  * @description: andy framework http框架测试

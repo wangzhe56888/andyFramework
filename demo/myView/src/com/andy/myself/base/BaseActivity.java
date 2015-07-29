@@ -5,8 +5,6 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.andy.framework.util.AndyBarTintManager;
-import com.andy.myself.AndyApplication;
-import com.andy.myself.R;
 
 /**
  * @description: Activity基类

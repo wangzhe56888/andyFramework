@@ -1,5 +1,6 @@
 package com.andy.myself.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -7,8 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.andy.myself.R;
 import com.andy.myself.base.BaseHeaderActivity;
@@ -22,8 +21,10 @@ import com.andy.myself.base.BaseHeaderActivity;
  * nickname : Andy
  * @author wangys
  */
+@SuppressLint("ClickableViewAccessibility")
 public class DragViewActivity extends BaseHeaderActivity implements OnTouchListener {
 	private Button btnOkc;
+	@SuppressWarnings("unused")
 	private View titleView, tipView;
 	private int lastX = 0, lastY = 0;
 	private int screenWidth, screenHeight;

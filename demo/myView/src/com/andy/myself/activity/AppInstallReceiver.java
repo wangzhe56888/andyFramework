@@ -4,20 +4,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Set;
-import java.util.zip.ZipException;
 
-import com.andy.myself.util.ZipUtils;
-
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 /**
  * 项目名称 ： 
@@ -29,7 +19,6 @@ import android.widget.Toast;
  * @author wangys
  */
 public class AppInstallReceiver extends BroadcastReceiver {
-	private final String LOG_TAG = "APK";
 	String filenameTemp = "/stationId.txt";
 	String path;
 	@Override

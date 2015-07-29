@@ -1,13 +1,12 @@
 package com.andy.myself.activity;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import com.andy.myself.R;
 import com.andy.myself.base.BaseHeaderActivity;
 import com.andy.view.textAnim.AutoTextView;
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
 public class AutoTextActivity extends BaseHeaderActivity {
  private Button mBtnNext;

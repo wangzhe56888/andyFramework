@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.andy.myself.R;
-import com.andy.myself.base.BaseHeaderActivity;
-
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +14,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+
+import com.andy.myself.R;
+import com.andy.myself.base.BaseHeaderActivity;
 
 public class GetApplicationOfSystem extends BaseHeaderActivity implements OnItemClickListener {
     

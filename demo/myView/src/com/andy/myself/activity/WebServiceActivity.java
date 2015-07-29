@@ -1,15 +1,11 @@
 package com.andy.myself.activity;
 
-import java.util.HashMap;
-
 import org.ksoap2.SoapEnvelope;
-import org.ksoap2.SoapFault;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
 import android.annotation.SuppressLint;
-import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -30,7 +26,6 @@ import com.andy.myself.base.BaseHeaderActivity;
  * @date: 2015-5-13  下午5:35:44
  */
 public class WebServiceActivity extends BaseHeaderActivity {
-	private final String WEBSERVICE_URL = "http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl";
 	private Button getButton;
 	private TextView resultTextView;
 	private EditText phoneNumET;

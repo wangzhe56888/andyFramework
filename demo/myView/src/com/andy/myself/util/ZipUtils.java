@@ -8,7 +8,16 @@ package com.andy.myself.util;
  * nickname : Andy
  * @author wangys
  */
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
@@ -67,7 +76,8 @@ public class ZipUtils {
     * @param folderPath 解压缩的目标目录
     * @throws IOException 当解压缩过程出错时抛出
     */
-    public static void upZipFile(File zipFile, String folderPath) throws ZipException, IOException {
+    @SuppressWarnings("resource")
+	public static void upZipFile(File zipFile, String folderPath) throws ZipException, IOException {
         File desDir = new File(folderPath);
         if (!desDir.exists()) {
             desDir.mkdirs();
@@ -106,7 +116,8 @@ public class ZipUtils {
     * @throws ZipException 压缩格式有误时抛出
     * @throws IOException IO错误时抛出
     */
-    public static ArrayList<File> upZipSelectedFile(File zipFile, String folderPath,
+    @SuppressWarnings("resource")
+	public static ArrayList<File> upZipSelectedFile(File zipFile, String folderPath,
             String nameContains) throws ZipException, IOException {
         ArrayList<File> fileList = new ArrayList<File>();
 
@@ -172,7 +183,8 @@ public class ZipUtils {
     * @throws ZipException 压缩文件格式有误时抛出
     * @throws IOException IO操作有误时抛出
     */
-    public static Enumeration<?> getEntriesEnumeration(File zipFile) throws ZipException,
+    @SuppressWarnings("resource")
+	public static Enumeration<?> getEntriesEnumeration(File zipFile) throws ZipException,
             IOException {
         ZipFile zf = new ZipFile(zipFile);
         return zf.entries();
