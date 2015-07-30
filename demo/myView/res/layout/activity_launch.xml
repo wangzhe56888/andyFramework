@@ -10,9 +10,10 @@
         android:id="@+id/launch_logo_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/andy"
+        android:background="@drawable/andy_photo"
         android:contentDescription="@string/image"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
         />
     <LinearLayout 
         android:layout_width="fill_parent"

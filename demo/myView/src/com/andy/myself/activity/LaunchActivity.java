@@ -62,14 +62,14 @@ public class LaunchActivity extends BaseActivity implements AnimationListener{
 		textViews.add((TextView) findViewById(R.id.launch_text_7));
 		
 		textAnimation = new AlphaAnimation(0.2f, 1.0f);
-		textAnimation.setDuration(700);
+		textAnimation.setDuration(500);
 		textAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
 		textAnimation.setAnimationListener(textAnimationListener);
 		
 		
 		RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.launch_layout_id);
 		AlphaAnimation alphaAnimation = new AlphaAnimation(0.3f, 1.0f);
-		alphaAnimation.setDuration(2500);
+		alphaAnimation.setDuration(1500);
 		alphaAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
 		relativeLayout.setAnimation(alphaAnimation);
 		alphaAnimation.setAnimationListener(this);

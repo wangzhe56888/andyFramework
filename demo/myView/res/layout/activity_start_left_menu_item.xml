@@ -1,0 +1,13 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/menu_relativeLayout_style"
+    android:minHeight="40dp"
+    >
+    <TextView 
+        android:id="@+id/start_menu_item_tv_id"
+        style="@style/menu_text_style"
+        android:layout_marginLeft="15dp"
+        />
+</RelativeLayout>

@@ -5,6 +5,8 @@
     <string name="image">image</string>
     <string name="contentDescription">contentDescription</string>
     
+    <string name="andy_description">andy\nwin58@qq.com</string>
+    
     
     <string name="activity_start_title">andy 框架</string>
     <string name="activity_circle_title">旋转控件</string>
@@ -32,6 +34,7 @@
     <string name="activity_location_title">百度地理位置</string>
     <string name="activity_location_gaode_title">高德地理位置</string>
     <string name="activity_drag_gridview_title">拖拽换位</string>
+    <string name="activity_db_title">数据库框架</string>
 
     <string name="nba_bulls">公牛</string>
     <string name="nba_bucks">雄鹿</string>
@@ -53,7 +56,20 @@
     <string name="andyframework_refresh">刷新</string>
     <string name="andyframework_commit">提交</string>
     
-    
+    <!-- 启动页面 -->
+    <string name="activity_start_group_all_title">全部分类</string>
+    <string name="activity_start_group_framework_title">框架类</string>
+    <string name="activity_start_group_framework_desc">andy framework的使用测试demo</string>
+    <string name="activity_start_group_view_title">控件类</string>
+    <string name="activity_start_group_view_desc">常用自定义控件的测试demo</string>
+    <string name="activity_start_group_application_title">系统类</string>
+    <string name="activity_start_group_application_desc">application相关的一些使用</string>
+    <string name="activity_start_group_help_title">工具类</string>
+    <string name="activity_start_group_help_desc">常用的自定义工具类的使用</string>
+    <string name="activity_start_group_third_party_title">第三方应用</string>
+    <string name="activity_start_group_third_party_desc">第三方应用的测试demo</string>
+    <string name="activity_start_group_animator_title">动画相关</string>
+    <string name="activity_start_group_animator_desc">一些动画的使用demo</string>
     
     <!-- 高德地图配置 -->
     <string name="weather_forecast_title">天气预报</string>

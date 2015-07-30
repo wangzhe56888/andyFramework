@@ -1,10 +1,9 @@
 package com.andy.view.slidingMenu;
 
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
@@ -15,8 +14,7 @@ import com.andy.framework.util.AndyScreenUtil;
 import com.andy.myself.R;
 import com.nineoldandroids.view.ViewHelper;
 
-public class SlidingMenu extends HorizontalScrollView
-{
+public class SlidingMenu extends HorizontalScrollView {
 	/**
 	 * 屏幕宽度
 	 */
@@ -38,30 +36,26 @@ public class SlidingMenu extends HorizontalScrollView
 	private ViewGroup mMenu;
 	private ViewGroup mContent;
 
-	public SlidingMenu(Context context, AttributeSet attrs)
-	{
+	public SlidingMenu(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 
 	}
 
-	public SlidingMenu(Context context, AttributeSet attrs, int defStyle)
-	{
+	public SlidingMenu(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		mScreenWidth = AndyScreenUtil.getScreenWidth(context);
 
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
 				R.styleable.SlidingMenu, defStyle, 0);
 		int n = a.getIndexCount();
-		for (int i = 0; i < n; i++)
-		{
+		for (int i = 0; i < n; i++) {
 			int attr = a.getIndex(i);
-			switch (attr)
-			{
+			switch (attr) {
 			case R.styleable.SlidingMenu_rightPadding:
-				// 默认50
+				// 默认100
 				mMenuRightPadding = a.getDimensionPixelSize(attr,
 						(int) TypedValue.applyDimension(
-								TypedValue.COMPLEX_UNIT_DIP, 50f,
+								TypedValue.COMPLEX_UNIT_DIP, 100f,
 								getResources().getDisplayMetrics()));// 默认为10DP
 				break;
 			}
@@ -69,27 +63,23 @@ public class SlidingMenu extends HorizontalScrollView
 		a.recycle();
 	}
 
-	public SlidingMenu(Context context)
-	{
+	public SlidingMenu(Context context) {
 		this(context, null, 0);
 	}
 
 	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
-	{
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		/**
 		 * 显示的设置一个宽度
 		 */
-		if (!once)
-		{
-			
+		if (!once) {
+
 			LinearLayout wrapper = (LinearLayout) getChildAt(0);
 			int childCount = wrapper.getChildCount();
-			Log.e(VIEW_LOG_TAG, "子控件数量 ：" + childCount);
 			if (childCount == 2) {
 				mMenu = (ViewGroup) wrapper.getChildAt(0);
 				mContent = (ViewGroup) wrapper.getChildAt(1);
-				
+
 				mMenuWidth = mScreenWidth - mMenuRightPadding;
 				mHalfMenuWidth = mMenuWidth / 2;
 				mMenu.getLayoutParams().width = mMenuWidth;
@@ -103,32 +93,27 @@ public class SlidingMenu extends HorizontalScrollView
 	}
 
 	@Override
-	protected void onLayout(boolean changed, int l, int t, int r, int b)
-	{
+	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		super.onLayout(changed, l, t, r, b);
-		if (changed)
-		{
+		if (changed) {
 			// 将菜单隐藏
 			this.scrollTo(mMenuWidth, 0);
 			once = true;
 		}
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	@Override
-	public boolean onTouchEvent(MotionEvent ev)
-	{
+	public boolean onTouchEvent(MotionEvent ev) {
 		int action = ev.getAction();
-		switch (action)
-		{
+		switch (action) {
 		// Up时，进行判断，如果显示区域大于菜单宽度一半则完全显示，否则隐藏
 		case MotionEvent.ACTION_UP:
 			int scrollX = getScrollX();
-			if (scrollX > mHalfMenuWidth)
-			{
+			if (scrollX > mHalfMenuWidth) {
 				this.smoothScrollTo(mMenuWidth, 0);
 				isOpen = false;
-			} else
-			{
+			} else {
 				this.smoothScrollTo(0, 0);
 				isOpen = true;
 			}
@@ -140,8 +125,7 @@ public class SlidingMenu extends HorizontalScrollView
 	/**
 	 * 打开菜单
 	 */
-	public void openMenu()
-	{
+	public void openMenu() {
 		if (isOpen)
 			return;
 		this.smoothScrollTo(0, 0);
@@ -151,10 +135,8 @@ public class SlidingMenu extends HorizontalScrollView
 	/**
 	 * 关闭菜单
 	 */
-	public void closeMenu()
-	{
-		if (isOpen)
-		{
+	public void closeMenu() {
+		if (isOpen) {
 			this.smoothScrollTo(mMenuWidth, 0);
 			isOpen = false;
 		}
@@ -163,25 +145,25 @@ public class SlidingMenu extends HorizontalScrollView
 	/**
 	 * 切换菜单状态
 	 */
-	public void toggle()
-	{
-		if (isOpen)
-		{
+	public void toggle() {
+		if (isOpen) {
 			closeMenu();
-		} else
-		{
+		} else {
 			openMenu();
 		}
 	}
 
+	public boolean isOpen() {
+		return isOpen;
+	}
+
 	@Override
-	protected void onScrollChanged(int l, int t, int oldl, int oldt)
-	{
+	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
 		super.onScrollChanged(l, t, oldl, oldt);
 		float scale = l * 1.0f / mMenuWidth;
 		float leftScale = 1 - 0.3f * scale;
 		float rightScale = 0.8f + scale * 0.2f;
-		
+
 		ViewHelper.setScaleX(mMenu, leftScale);
 		ViewHelper.setScaleY(mMenu, leftScale);
 		ViewHelper.setAlpha(mMenu, 0.6f + 0.4f * (1 - scale));

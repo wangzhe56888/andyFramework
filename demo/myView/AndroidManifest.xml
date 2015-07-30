@@ -113,6 +113,7 @@
 		<activity android:name=".activity.gaode.GeoFenceActivity"/>
 		<activity android:name=".activity.gaode.GPSLocationActivity"/>
 		<activity android:name=".activity.dragGridView.DragGridViewActivity"/>
+		<activity android:name=".activity.AndyDBActivity"/>
         
         
         <!-- 监听app安装更新卸载 -->

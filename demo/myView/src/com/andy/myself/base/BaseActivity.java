@@ -1,6 +1,5 @@
 package com.andy.myself.base;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -16,13 +15,10 @@ public class BaseActivity extends Activity {
 	protected final String LOG_TAG = "LOG_TAG";
 	protected Activity mActivity;
 	
-	@SuppressLint("ResourceAsColor")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mActivity = this;
-//		((AndyApplication)getApplication()).addActivity(mActivity);
-		
 		AndyBarTintManager manager = new AndyBarTintManager(this);
 		manager.setBarTintTransparent(true);
 	}

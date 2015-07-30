@@ -43,4 +43,19 @@
         <item name="android:visibility">invisible</item>
         <item name="android:padding">2dp</item>
     </style>
+    
+    <!-- 左侧菜单样式 -->
+    <style name="menu_relativeLayout_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/menu_item_height</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+    <!-- 左侧菜单文字样式 -->
+    <style name="menu_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/title_bg_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>
