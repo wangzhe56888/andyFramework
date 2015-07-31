@@ -119,6 +119,9 @@ public class WebServiceActivity extends BaseHeaderActivity {
             e.printStackTrace();  
         }  
   
+        if (envelope == null || envelope.bodyIn == null) {
+			return;
+		}
         // 获取返回的数据  
         SoapObject object = (SoapObject) envelope.bodyIn;  
         // 获取返回的结果  

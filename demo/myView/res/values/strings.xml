@@ -70,6 +70,8 @@
     <string name="activity_start_group_third_party_desc">第三方应用的测试demo</string>
     <string name="activity_start_group_animator_title">动画相关</string>
     <string name="activity_start_group_animator_desc">一些动画的使用demo</string>
+    <string name="activity_start_group_other_title">其他类型</string>
+    <string name="activity_start_group_other_desc">其他杂项测试demo</string>
     
     <!-- 高德地图配置 -->
     <string name="weather_forecast_title">天气预报</string>

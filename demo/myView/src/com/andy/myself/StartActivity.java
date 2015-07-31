@@ -67,7 +67,8 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 		group_system,
 		group_help,
 		group_third_party,
-		group_animator
+		group_animator,
+		group_other
 	}
 	
 	private final String KEY_MENU_NAME = "menu_name";
@@ -251,9 +252,15 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 				R.string.activity_animation_title, AnimationActivity.class.getName()
 			};
 		
+		// 其他相关
+		Object[] otherActivities = 
+			{
+				
+			};
+		
 		GroupBean[] groupBeans = null;
 		if (GroupType.group_all == type) {
-			groupBeans = new GroupBean[6];
+			groupBeans = new GroupBean[7];
 			GroupBean bean0 = new GroupBean(
 					getResources().getString(R.string.activity_start_group_framework_title), 
 					getResources().getString(R.string.activity_start_group_framework_desc), 
@@ -275,7 +282,7 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 			GroupBean bean3 = new GroupBean(
 					getResources().getString(R.string.activity_start_group_third_party_title), 
 					getResources().getString(R.string.activity_start_group_third_party_desc), 
-					getMenuData(helpActivities));
+					getMenuData(thirdPartyActivities));
 			groupBeans[3] = bean3;
 			
 			GroupBean bean4 = new GroupBean(
@@ -289,6 +296,12 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 					getResources().getString(R.string.activity_start_group_animator_desc), 
 					getMenuData(animationActivities));
 			groupBeans[5] = bean5;
+			
+			GroupBean bean6 = new GroupBean(
+					getResources().getString(R.string.activity_start_group_other_title), 
+					getResources().getString(R.string.activity_start_group_other_desc), 
+					getMenuData(otherActivities));
+			groupBeans[6] = bean6;
 		} else if (GroupType.group_system == type) {
 			groupBeans = new GroupBean[1];
 			GroupBean bean = new GroupBean(
@@ -330,6 +343,13 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 					getResources().getString(R.string.activity_start_group_animator_title), 
 					getResources().getString(R.string.activity_start_group_animator_desc), 
 					getMenuData(animationActivities));
+			groupBeans[0] = bean;
+		} else if (GroupType.group_other == type) {
+			groupBeans = new GroupBean[1];
+			GroupBean bean = new GroupBean(
+					getResources().getString(R.string.activity_start_group_other_title), 
+					getResources().getString(R.string.activity_start_group_other_desc), 
+					getMenuData(otherActivities));
 			groupBeans[0] = bean;
 		}
 		return groupBeans;

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:padding="3dp"
-    android:background="@color/white"
+    android:background="#bbf9f4"
     >
     <ImageView 
         android:id="@+id/start_item_icon_id"
@@ -24,7 +24,6 @@
         android:textColor="@color/color_font_common"
         android:textSize="16sp"
         android:layout_toRightOf="@id/start_item_icon_id"
-        android:text="title"
         />
     <TextView
         android:id="@+id/start_item_desc_id"
@@ -35,6 +34,5 @@
 		android:layout_toRightOf="@id/start_item_icon_id"
 		android:layout_below="@id/start_item_title_id"
 		android:layout_marginTop="2dp"
-		android:text="title"
         />
 </RelativeLayout>
