@@ -15,7 +15,7 @@
         android:padding="10dp"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:layout_below="@id/title_id"
         />
     <TextView 
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textSize="20sp"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:layout_below="@id/device_id_tv"
         />
     <TextView 

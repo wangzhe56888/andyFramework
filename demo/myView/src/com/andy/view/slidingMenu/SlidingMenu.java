@@ -56,7 +56,7 @@ public class SlidingMenu extends HorizontalScrollView {
 				mMenuRightPadding = a.getDimensionPixelSize(attr,
 						(int) TypedValue.applyDimension(
 								TypedValue.COMPLEX_UNIT_DIP, 100f,
-								getResources().getDisplayMetrics()));// 默认为10DP
+								getResources().getDisplayMetrics()));
 				break;
 			}
 		}
@@ -73,7 +73,6 @@ public class SlidingMenu extends HorizontalScrollView {
 		 * 显示的设置一个宽度
 		 */
 		if (!once) {
-
 			LinearLayout wrapper = (LinearLayout) getChildAt(0);
 			int childCount = wrapper.getChildCount();
 			if (childCount == 2) {

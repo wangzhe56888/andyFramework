@@ -16,7 +16,7 @@
         android:paddingLeft="@dimen/start_title_margin_left"
         android:paddingTop="@dimen/start_margin_vertical"
         android:text="@string/weather_forecast_title"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:textSize="@dimen/start_title_font_size"
         android:background="@color/darkgrey"
         />
@@ -33,7 +33,7 @@
         android:paddingBottom="@dimen/start_content_vertical"
         android:paddingTop="@dimen/start_content_vertical"
         android:text="@string/weather_forecast_current"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:textSize="@dimen/start_content_font_size" 
         android:background="@drawable/border"
         />
@@ -51,7 +51,7 @@
         android:paddingBottom="@dimen/start_content_vertical"
         android:paddingTop="@dimen/start_content_vertical"
         android:text="@string/weather_forecast_future"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:textSize="@dimen/start_content_font_size" 
         android:background="@drawable/border"
         />
@@ -67,7 +67,7 @@
         android:paddingLeft="@dimen/start_title_margin_left"
         android:paddingTop="@dimen/start_content_vertical"
         android:text="@string/location_title"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:textSize="@dimen/start_title_font_size"
         android:background="@color/darkgrey"
         />
@@ -84,7 +84,7 @@
         android:paddingBottom="@dimen/start_content_vertical"
         android:paddingTop="@dimen/start_content_vertical"
         android:text="@string/location_net_method"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:textSize="@dimen/start_content_font_size" 
         android:background="@drawable/border"
         />
@@ -102,7 +102,7 @@
         android:paddingBottom="@dimen/start_content_vertical"
         android:paddingTop="@dimen/start_content_vertical"
         android:text="@string/location_mulity_method"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:textSize="@dimen/start_content_font_size" 
         android:background="@drawable/border"
         />
@@ -120,7 +120,7 @@
         android:paddingBottom="@dimen/start_content_vertical"
         android:paddingTop="@dimen/start_content_vertical"
         android:text="@string/location_gps_method"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:textSize="@dimen/start_content_font_size"
         android:background="@drawable/border"
         />
@@ -138,7 +138,7 @@
         android:paddingBottom="@dimen/start_content_vertical"
         android:paddingTop="@dimen/start_content_vertical"
         android:text="@string/location_geofence_method"
-        android:textColor="@color/content_text_color"
+        android:textColor="@color/color_font_common"
         android:textSize="@dimen/start_content_font_size" 
         android:background="@drawable/border"
         />

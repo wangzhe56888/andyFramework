@@ -3,9 +3,10 @@
     <color name="background_color">#EDEDED</color>
     <color name="title_color">#ff5963</color>
     <color name="title_bg_color">#6bc8b8</color>
-    <color name="content_text_color">#0a0a0a</color>
     
-    
+    <!-- 字体颜色 -->
+    <color name="color_font_common">#0a0a0a</color>
+    <color name="color_font_grey">#ff7a7a7c</color>
     
     
     <!-- 半透明 -->

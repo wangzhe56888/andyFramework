@@ -113,7 +113,7 @@ public class LocationBaiduActivity extends BaseHeaderActivity {
 			networkStateTV.setTextColor(getResources().getColor(R.color.red));
 			stringBuffer.append("已断开！");
 		} else {
-			networkStateTV.setTextColor(getResources().getColor(R.color.content_text_color));
+			networkStateTV.setTextColor(getResources().getColor(R.color.color_font_common));
 			stringBuffer.append(AndyNetworkUtil.getAPNType(this));
 		}
 		networkStateTV.setText(stringBuffer.toString());

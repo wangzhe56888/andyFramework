@@ -21,7 +21,7 @@
     <style name="content_text_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/content_text_color</item>
+        <item name="android:textColor">@color/color_font_common</item>
         <item name="android:textSize">@dimen/common_content_font_size</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:padding">5dip</item>

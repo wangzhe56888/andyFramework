@@ -53,10 +53,15 @@ public class AndyHeaderExpandableListView extends ExpandableListView
 	 */
 	private boolean mHeaderViewVisible;
 
+	/**
+	 * headerView的宽高
+	 * */
 	private int mHeaderViewWidth;
-
 	private int mHeaderViewHeight;
 
+	/**
+	 * 设置要显示headerView
+	 * */
 	public void setHeaderView(View view) {
 		mHeaderView = view;
 		AbsListView.LayoutParams lp = new AbsListView.LayoutParams(
@@ -70,6 +75,9 @@ public class AndyHeaderExpandableListView extends ExpandableListView
 		requestLayout();
 	}
 
+	/**
+	 * 注册监听器
+	 * */
 	private void registerListener() {
 		setOnScrollListener(this);
 		setOnGroupClickListener(this);
@@ -95,13 +103,12 @@ public class AndyHeaderExpandableListView extends ExpandableListView
 		this.setSelectedGroup(groupPosition);
 	}
 
-	private float mDownX;
-	private float mDownY;
-
 	/**
 	 * 如果 HeaderView 是可见的 , 此函数用于判断是否点击了 HeaderView, 并对做相应的处理 ,
-	 * 因为 HeaderView 是画上去的 , 所以设置事件监听是无效的 , 只有自行控制 .
+	 * 因为 HeaderView 是画上去的 , 所以设置事件监听是无效的 , 只有自行控制
 	 */
+	private float mDownX;
+	private float mDownY;
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
 		if (mHeaderViewVisible) {
@@ -144,7 +151,6 @@ public class AndyHeaderExpandableListView extends ExpandableListView
 	}
 
 	/**
-	 * 
 	 * 点击了 Group 触发的事件 , 要根据根据当前点击 Group 的状态来
 	 */
 	@Override
