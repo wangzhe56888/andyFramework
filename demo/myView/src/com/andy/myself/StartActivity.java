@@ -255,7 +255,6 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 		// 其他相关
 		Object[] otherActivities = 
 			{
-				
 			};
 		
 		GroupBean[] groupBeans = null;

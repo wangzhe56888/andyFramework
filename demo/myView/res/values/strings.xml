@@ -55,6 +55,7 @@
     <string name="andyframework_bitmap_clear_cache">清除缓存</string>
     <string name="andyframework_refresh">刷新</string>
     <string name="andyframework_commit">提交</string>
+    <string name="andyframework_test">测试</string>
     
     <!-- 启动页面 -->
     <string name="activity_start_group_all_title">全部分类</string>
