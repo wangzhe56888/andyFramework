@@ -21,10 +21,10 @@ public class AndySimpleDisplayer implements AndyDisplayer {
 	@Override
 	public void loadCompletedisplay(View imageView, Bitmap bitmap, AndyBitmapDisplayConfig config) {
 		switch (config.getAnimationType()) {
-			case AndyBitmapDisplayConfig.AnimationType.fadeIn:
+			case AndyBitmapDisplayConfig.AnimationType.default_fadeIn:
 				displayWithFadeIn(imageView, bitmap);
 				break;
-			case AndyBitmapDisplayConfig.AnimationType.userDefined:
+			case AndyBitmapDisplayConfig.AnimationType.user_defined:
 				displayWithAnimation(imageView, bitmap, config.getAnimation());
 				break;
 			default:

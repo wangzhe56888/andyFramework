@@ -72,13 +72,14 @@ public class AndyBitmapActivity extends BaseHeaderActivity {
 	
 	private List<String> getListData(int from) {
 		List<String> dataList = new ArrayList<String>();
-		for (int i = from; i < from + 10; i++) {
-			if (i > 17) {
-				dataList.add(URL_IMG + "img_" + (i % 17) + ".jpg");
-			} else {
-				dataList.add(URL_IMG + "img_" + i + ".jpg");
-			}
-		}
+//		for (int i = from; i < from + 10; i++) {
+//			if (i > 17) {
+//				dataList.add(URL_IMG + "img_" + (i % 17) + ".jpg");
+//			} else {
+//				dataList.add(URL_IMG + "img_" + i + ".jpg");
+//			}
+//		}
+		dataList.add("http://192.168.8.71:8080/humanres/control/getAppUserPhoto?partyId=617011");
 		return dataList;
 	}
 	

@@ -5,7 +5,7 @@ import java.util.Map;
 import android.annotation.SuppressLint;
 
 /**
- * @description: 最近最少使用算法缓存
+ * @description: 最近最少使用算法缓存实现
  * @author: andy  
  * @mail: win58@qq.com
  * @date: 2015-5-12  下午2:41:39
@@ -27,7 +27,7 @@ public class AndyLRUMemoryCache<K, V> {
 	
 	public AndyLRUMemoryCache(int maxSize) {
 		if (maxSize <= 0) {
-			throw new IllegalArgumentException("illegal param maxSize <= 0");
+			throw new IllegalArgumentException("AndyLRUMemoryCache ：illegal param maxSize <= 0");
 		}
 		this.maxSize = maxSize;
 		map = new LinkedHashMap<K, V>();

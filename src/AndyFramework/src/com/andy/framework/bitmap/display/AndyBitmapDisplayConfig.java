@@ -10,14 +10,17 @@ import android.view.animation.Animation;
  * @date: 2015-5-13  上午10:39:31
  */
 public class AndyBitmapDisplayConfig {
-	
+	/** 图片宽度 **/
 	private int bitmapWidth;
+	/** 图片高度 **/
 	private int bitmapHeight;
-	
+	/** 显示动画 **/
 	private Animation animation;
+	/** 动画类型 **/
 	private int animationType;
-	
+	/** 正在下载要显示的图片 **/
 	private Bitmap loadingBitmap;
+	/** 加载失败显示的图片 **/
 	private Bitmap loadfailBitmap;
 
 	public int getBitmapWidth() {
@@ -69,10 +72,10 @@ public class AndyBitmapDisplayConfig {
 	}
 
 	/**
-	 * 动画类型
+	 * 图片显示动画类型
 	 * */
 	public class AnimationType {
-		public static final int userDefined = 0;
-		public static final int fadeIn = 1;
+		public static final int user_defined = 0;
+		public static final int default_fadeIn = 1;
 	}
 }

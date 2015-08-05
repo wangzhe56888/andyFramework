@@ -169,8 +169,8 @@ public class AndyBitmapCache {
     }
     
     /**
-     * Closes the disk cache associated with this ImageCache object. Note that this includes
-     * disk access so this should not be executed on the main/UI thread.
+     * 关闭磁盘缓存
+     * 注意：该方法包含磁盘存取，所以不应该在主线程使用
      */
     public void close() {
     	if(mDiskCache != null)

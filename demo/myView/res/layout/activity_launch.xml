@@ -16,6 +16,7 @@
         android:layout_marginTop="150dp"
         />
     <LinearLayout 
+        android:id="@+id/launch_text_layout_id"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -59,4 +60,17 @@
 	        android:text="始"
 	        />
     </LinearLayout>
+    
+    <EditText 
+        android:id="@+id/launch_password_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg"
+        android:layout_below="@id/launch_text_layout_id"
+        android:inputType="textPassword"
+        android:layout_margin="@dimen/common_margin_horizontal"
+        android:gravity="center"
+        android:hint="输入口令"
+        android:visibility="gone"
+        />
 </RelativeLayout>
