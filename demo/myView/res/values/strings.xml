@@ -74,6 +74,13 @@
     <string name="activity_start_group_other_title">其他类型</string>
     <string name="activity_start_group_other_desc">其他杂项测试demo</string>
     
+    <!-- andy DB 测试 -->
+    <string name="db_username_tip">请输入用户名</string>
+    <string name="db_password_tip">请输入密码</string>
+    <string name="db_insert_update_data">插入/更新</string>
+    <string name="db_select_data">查询</string>
+    <string name="db_delete_data">删除</string>
+    
     <!-- 高德地图配置 -->
     <string name="weather_forecast_title">天气预报</string>
     <string name="weather_forecast_current">实时天气预报</string>

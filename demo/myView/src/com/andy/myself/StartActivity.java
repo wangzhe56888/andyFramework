@@ -29,7 +29,6 @@ import android.widget.TextView;
 
 import com.andy.framework.view.expandablelistview.AndyHeaderExpLVAdapter;
 import com.andy.framework.view.expandablelistview.AndyHeaderExpandableListView;
-import com.andy.myself.activity.AndyDBActivity;
 import com.andy.myself.activity.AutoTextActivity;
 import com.andy.myself.activity.CircleActivity;
 import com.andy.myself.activity.DragViewActivity;
@@ -47,6 +46,7 @@ import com.andy.myself.activity.VolleyActivity;
 import com.andy.myself.activity.WebServiceActivity;
 import com.andy.myself.activity.WebViewActivity;
 import com.andy.myself.activity.andyframework.AndyBitmapActivity;
+import com.andy.myself.activity.andyframework.AndyDBActivity;
 import com.andy.myself.activity.andyframework.AndyHttpActivity;
 import com.andy.myself.activity.animation.AnimationActivity;
 import com.andy.myself.activity.dragGridView.DragGridViewActivity;

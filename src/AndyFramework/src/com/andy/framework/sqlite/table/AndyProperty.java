@@ -48,8 +48,10 @@ public class AndyProperty {
 			}
 		} else {
 			try {
-				field.setAccessible(true);
-				field.set(receiver, value);
+				if (field != null) {
+					field.setAccessible(true);
+					field.set(receiver, value);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

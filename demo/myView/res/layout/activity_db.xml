@@ -1,12 +1,64 @@
-<RelativeLayout 
+<LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top"
-    android:background="@color/background_color"
+    android:orientation="vertical"
     >
     <include 
         android:id="@+id/title_id"
         layout="@layout/common_layout_title"
         />
-</RelativeLayout>
+    <EditText 
+        android:id="@+id/db_username_et_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/andy_edit_text_style"
+        android:hint="@string/db_username_tip"
+        android:drawableLeft="@drawable/icon_username"
+        android:layout_margin="@dimen/common_margin_horizontal"
+        />
+    <EditText 
+        android:id="@+id/db_password_et_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/andy_edit_text_style"
+        android:hint="@string/db_password_tip"
+        android:drawableLeft="@drawable/icon_password"
+        android:layout_marginLeft="@dimen/common_margin_horizontal"
+        android:layout_marginRight="@dimen/common_margin_horizontal"
+        />
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/common_margin_horizontal"
+        >
+        <Button 
+            android:id="@+id/db_insert_update_btn_id"
+            style="@style/andy_button_blue_style"
+            android:layout_weight="1"
+            android:text="@string/db_insert_update_data"
+            android:layout_marginRight="5dp"
+            />
+        <Button 
+            android:id="@+id/db_select_btn_id"
+            style="@style/andy_button_blue_style"
+            android:layout_weight="1"
+            android:text="@string/db_select_data"
+            android:layout_marginRight="5dp"
+            />
+        <Button 
+            android:id="@+id/db_delete_btn_id"
+            style="@style/andy_button_blue_style"
+            android:layout_weight="1"
+            android:text="@string/db_delete_data"
+            />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/db_result_tv_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/andy_text_common_style"
+        />
+</LinearLayout>

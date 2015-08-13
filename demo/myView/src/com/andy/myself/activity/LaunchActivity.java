@@ -110,10 +110,10 @@ public class LaunchActivity extends BaseActivity implements AnimationListener{
 			textView.setAnimation(textAnimation);
 			textAnimation.start();
 		} else {
-//			startActivity(new Intent(mActivity, StartActivity.class));
-//			LaunchActivity.this.finish();
+			startActivity(new Intent(mActivity, StartActivity.class));
+			LaunchActivity.this.finish();
 			
-			passwordEditText.setVisibility(View.VISIBLE);
+//			passwordEditText.setVisibility(View.VISIBLE);
 		}
 	}
 	

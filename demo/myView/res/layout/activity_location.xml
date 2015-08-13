@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/button_blue_style"
+            style="@style/andy_button_blue_style"
             android:text="@string/andyframework_refresh"
             />
         <Button 
@@ -58,7 +58,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/button_blue_style"
+            style="@style/andy_button_blue_style"
             android:text="@string/andyframework_commit"
             android:layout_marginLeft="5dp"
             />

@@ -34,7 +34,7 @@ public class AndyCursorUtils {
 						if (property != null) {
 							property.setValue(entity, cursor.getString(i));
 						} else {
-							if (table.getId().getColumn().equals(column)) {
+							if (table.getId() != null && table.getId().getColumn().equals(column)) {
 								table.getId().setValue(entity, cursor.getString(i));
 							}
 						}
