@@ -21,10 +21,13 @@ public class AndySimpleDisplayer implements AndyDisplayer {
 	@Override
 	public void loadCompletedisplay(View imageView, Bitmap bitmap, AndyBitmapDisplayConfig config) {
 		switch (config.getAnimationType()) {
-			case AndyBitmapDisplayConfig.AnimationType.default_fadeIn:
+			case AndyBitmapDisplayConfig.AnimationType.TYPE_NO_ANIMATION:
+				displayNoAnimation(imageView, bitmap);
+				break;
+			case AndyBitmapDisplayConfig.AnimationType.TYPE_DEFAULT_FADEIN:
 				displayWithFadeIn(imageView, bitmap);
 				break;
-			case AndyBitmapDisplayConfig.AnimationType.user_defined:
+			case AndyBitmapDisplayConfig.AnimationType.TYPE_USER_DEFINED:
 				displayWithAnimation(imageView, bitmap, config.getAnimation());
 				break;
 			default:
@@ -43,6 +46,17 @@ public class AndySimpleDisplayer implements AndyDisplayer {
 	}
 
 	/**
+	 * 不加动画方式
+	 * */
+	@SuppressWarnings("deprecation")
+	private void displayNoAnimation(View imageView, Bitmap bitmap) {
+		if (imageView instanceof ImageView) {
+			((ImageView)imageView).setImageBitmap(bitmap);
+		} else {
+			imageView.setBackgroundDrawable(new BitmapDrawable(bitmap));
+		}
+	}
+	/**
 	 * 默认显示动画
 	 * */
 	@SuppressWarnings("deprecation")
@@ -50,7 +64,7 @@ public class AndySimpleDisplayer implements AndyDisplayer {
 		Drawable[] drawables = new Drawable[] {
 				new ColorDrawable(android.R.color.transparent),
 				new BitmapDrawable(imageView.getResources(), bitmap)
-			};
+		};
 		final TransitionDrawable td = new TransitionDrawable(drawables);
 		if (imageView instanceof ImageView) {
 			((ImageView)imageView).setImageDrawable(td);

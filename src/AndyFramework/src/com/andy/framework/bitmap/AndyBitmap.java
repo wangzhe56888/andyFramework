@@ -806,7 +806,7 @@ public class AndyBitmap {
 
 			defaultDisplayConfig.setAnimation(null);
 			defaultDisplayConfig
-					.setAnimationType(AndyBitmapDisplayConfig.AnimationType.default_fadeIn);
+					.setAnimationType(AndyBitmapDisplayConfig.AnimationType.TYPE_NO_ANIMATION);
 
 			// 设置图片的显示最大尺寸（为屏幕的大小,默认为屏幕宽度的1/2）
 			DisplayMetrics displayMetrics = context.getResources()

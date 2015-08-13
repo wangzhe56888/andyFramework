@@ -32,7 +32,7 @@ public class AndyBitmapProcess {
 		if (bitmap == null) {
 			byte[] data = downLoader.download(url);
 			if(data != null && data.length > 0){
-				if (config !=null) {
+				if (config != null) {
 					bitmap =  AndyBitmapDecoder.decodeSampledBitmapFromByteArray(data,0,data.length,config.getBitmapWidth(),config.getBitmapHeight());
 				} else {
 					return BitmapFactory.decodeByteArray(data,0,data.length);

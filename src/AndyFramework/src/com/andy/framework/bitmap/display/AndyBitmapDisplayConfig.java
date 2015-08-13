@@ -75,7 +75,8 @@ public class AndyBitmapDisplayConfig {
 	 * 图片显示动画类型
 	 * */
 	public class AnimationType {
-		public static final int user_defined = 0;
-		public static final int default_fadeIn = 1;
+		public static final int TYPE_NO_ANIMATION = 0;
+		public static final int TYPE_USER_DEFINED = 1;
+		public static final int TYPE_DEFAULT_FADEIN = 2;
 	}
 }
