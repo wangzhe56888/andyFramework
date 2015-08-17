@@ -120,7 +120,7 @@ public class AndyBitmapCache {
                 return true;
             }
         } catch (IOException ex) {
-            // ignore.
+            // 忽略
         }
         return false;
     }

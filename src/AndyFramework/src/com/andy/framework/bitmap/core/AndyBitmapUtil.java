@@ -123,12 +123,6 @@ public class AndyBitmapUtil {
         return getBytes(httpUrl);
     }
 
-    /**
-     * A function thats returns a 64-bit crc for string
-     *
-     * @param in input string
-     * @return a 64-bit crc value
-     */
     public static final long crc64Long(String in) {
         if (in == null || in.length() == 0) {
             return 0;

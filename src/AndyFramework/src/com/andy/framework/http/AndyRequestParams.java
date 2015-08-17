@@ -57,7 +57,7 @@ public class AndyRequestParams {
 	public AndyRequestParams(Object...objects) {
 		int objectsLength = objects.length;
 		if (objectsLength % 2 != 0) {
-			new IllegalArgumentException("param is invalidate");
+			new IllegalArgumentException("param is invalidate, must be key-value...");
 		}
 		for (int i = 0; i < objectsLength; i += 2) {
 			put(String.valueOf(objects[i]), String.valueOf(objects[i+1]));

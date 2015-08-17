@@ -227,8 +227,7 @@ public class AndyBitmap {
 	/**
 	 * 配置内存缓存大小 大于2MB以上有效
 	 * 
-	 * @param size
-	 *            缓存大小
+	 * @param size 缓存大小
 	 */
 	public AndyBitmap configMemoryCacheSize(int size) {
 		mConfig.memCacheSize = size;
@@ -237,9 +236,7 @@ public class AndyBitmap {
 
 	/**
 	 * 设置应缓存的在APK总内存的百分比，优先级大于configMemoryCacheSize
-	 * 
-	 * @param percent
-	 *            百分比，值的范围是在 0.05 到 0.8之间
+	 * @param percent 百分比，值的范围是在 0.05 到 0.8之间
 	 */
 	public AndyBitmap configMemoryCachePercent(float percent) {
 		mConfig.memCacheSizePercent = percent;
@@ -248,7 +245,6 @@ public class AndyBitmap {
 
 	/**
 	 * 设置磁盘缓存大小 5MB 以上有效
-	 * 
 	 * @param size
 	 */
 	public AndyBitmap configDiskCacheSize(int size) {
@@ -258,7 +254,6 @@ public class AndyBitmap {
 
 	/**
 	 * 设置加载图片的线程并发数量
-	 * 
 	 * @param size
 	 */
 	public AndyBitmap configBitmapLoadThreadSize(int size) {
@@ -269,9 +264,8 @@ public class AndyBitmap {
 
 	/**
 	 * 配置是否立即回收图片资源
-	 * 
 	 * @param recycleImmediately
-	 * @return
+	 * @return AndyBitmap
 	 */
 	public AndyBitmap configRecycleImmediately(boolean recycleImmediately) {
 		mConfig.recycleImmediately = recycleImmediately;
@@ -406,8 +400,6 @@ public class AndyBitmap {
 	/**
 	 * activity onDestroy的时候调用这个方法，释放缓存
 	 * 执行过此方法后,AndyBitmap的缓存已经失效,建议通过AndyBitmap.create()获取新的实例
-	 * 
-	 * @author fantouch
 	 */
 	public void onDestroy() {
 		closeCache();
@@ -426,8 +418,7 @@ public class AndyBitmap {
 	 * @param key
 	 */
 	public void clearCache(String key) {
-		new CacheExecutecTask().execute(CacheExecutecTask.MESSAGE_CLEAR_KEY,
-				key);
+		new CacheExecutecTask().execute(CacheExecutecTask.MESSAGE_CLEAR_KEY, key);
 	}
 
 	/**
@@ -467,8 +458,6 @@ public class AndyBitmap {
 
 	/**
 	 * 关闭缓存 执行过此方法后,AndyBitmap的缓存已经失效,建议通过AndyBitmap.create()获取新的实例
-	 * 
-	 * @author fantouch
 	 */
 	public void closeCache() {
 		new CacheExecutecTask().execute(CacheExecutecTask.MESSAGE_CLOSE);
@@ -488,8 +477,7 @@ public class AndyBitmap {
 	/**
 	 * 暂停正在加载的线程，监听listview或者gridview正在滑动的时候条用词方法
 	 * 
-	 * @param pauseWork
-	 *            true停止暂停线程，false继续线程
+	 * @param pauseWork true停止暂停线程，false继续线程
 	 */
 	public void pauseWork(boolean pauseWork) {
 		synchronized (mPauseWorkLock) {
@@ -612,7 +600,6 @@ public class AndyBitmap {
 	/**
 	 * 执行过此方法后,AndyBitmap的缓存已经失效,建议通过AndyBitmap.create()获取新的实例
 	 * 
-	 * @author fantouch
 	 */
 	private void closeCacheInternalInBackgroud() {
 		if (mImageCache != null) {
@@ -653,9 +640,11 @@ public class AndyBitmap {
 		return null;
 	}
 
-	/******************************** private method end ******************************************/
+/******************************** private method end ******************************************/
 
-	/******************************** 内部类 start ******************************************/
+	
+	
+/******************************** 内部类 start ******************************************/
 	private static class AsyncDrawable extends BitmapDrawable {
 		private final WeakReference<BitmapLoadAndDisplayTask> bitmapWorkerTaskReference;
 
@@ -703,8 +692,6 @@ public class AndyBitmap {
 
 	/**
 	 * bitmap下载显示的线程
-	 * 
-	 * @author michael yang
 	 */
 	private class BitmapLoadAndDisplayTask extends
 			AndyAsyncTask<Object, Void, Bitmap> {
@@ -805,16 +792,14 @@ public class AndyBitmap {
 			defaultDisplayConfig = new AndyBitmapDisplayConfig();
 
 			defaultDisplayConfig.setAnimation(null);
-			defaultDisplayConfig
-					.setAnimationType(AndyBitmapDisplayConfig.AnimationType.TYPE_NO_ANIMATION);
+			defaultDisplayConfig.setAnimationType(
+					AndyBitmapDisplayConfig.AnimationType.TYPE_NO_ANIMATION);
 
 			// 设置图片的显示最大尺寸（为屏幕的大小,默认为屏幕宽度的1/2）
-			DisplayMetrics displayMetrics = context.getResources()
-					.getDisplayMetrics();
+			DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
 			int defaultWidth = (int) Math.floor(displayMetrics.widthPixels / 2);
 			defaultDisplayConfig.setBitmapHeight(defaultWidth);
 			defaultDisplayConfig.setBitmapWidth(defaultWidth);
-
 		}
 	}
 }

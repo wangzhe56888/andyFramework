@@ -100,8 +100,7 @@ public class AndyDiskCache implements Closeable {
         }
     }
 
-    // Delete the files associated with the given path previously created
-    // by the BlobCache constructor.
+    // 删除有关的二进制缓存文件
     public void delete(){
         deleteFileSilently(mPath + ".idx");
         deleteFileSilently(mPath + ".0");
@@ -112,12 +111,11 @@ public class AndyDiskCache implements Closeable {
         try {
             new File(path).delete();
         } catch (Throwable t) {
-            // ignore;
+            // ignore
         }
     }
 
-    // Close the cache. All resources are released. No other method should be
-    // called after this is called.
+    // 关闭缓存，清除所有资源，这之后没有其他方法调用
     @Override
     public void close() {
         syncAll();
@@ -131,8 +129,7 @@ public class AndyDiskCache implements Closeable {
         closeSilently(mDataFile1);
     }
 
-    // Returns true if loading index is successful. After this method is called,
-    // mIndexHeader and index header in file should be kept sync.
+    // 加载index成功则返回true，之后mIndexHeader and index header将保持同步
     private boolean loadIndex() {
         try {
             mIndexFile.seek(0);
@@ -167,7 +164,7 @@ public class AndyDiskCache implements Closeable {
                 return false;
             }
 
-            // Sanity check
+            // 有效验证
             if (mMaxEntries <= 0) {
                 AndyLog.warn_bitmap("invalid max entries");
                 return false;
@@ -244,7 +241,7 @@ public class AndyDiskCache implements Closeable {
     }
 
     private void resetCache(int maxEntries, int maxBytes) throws IOException {
-        mIndexFile.setLength(0);  // truncate to zero the index
+        mIndexFile.setLength(0);
         mIndexFile.setLength(INDEX_HEADER_SIZE + maxEntries * 12 * 2);
         mIndexFile.seek(0);
         byte[] buf = mIndexHeader;
@@ -257,7 +254,6 @@ public class AndyDiskCache implements Closeable {
         writeInt(buf, IH_VERSION, mVersion);
         writeInt(buf, IH_CHECKSUM, checkSum(buf, 0, IH_CHECKSUM));
         mIndexFile.write(buf);
-        // This is only needed if setLength does not zero the extended part.
         // writeZero(mIndexFile, maxEntries * 12 * 2);
 
         mDataFile0.setLength(0);
@@ -269,7 +265,6 @@ public class AndyDiskCache implements Closeable {
         mDataFile1.write(buf, 0, 4);
     }
 
-    // Flip the active region and the inactive region.
     private void flipRegion() throws IOException {
         mActiveRegion = 1 - mActiveRegion;
         mActiveEntries = 0;
@@ -285,7 +280,7 @@ public class AndyDiskCache implements Closeable {
         syncIndex();
     }
 
-    // Sync mIndexHeader to the index file.
+    // 同步 mIndexHeader到index
     private void updateIndexHeader() {
         writeInt(mIndexHeader, IH_CHECKSUM,
                 checkSum(mIndexHeader, 0, IH_CHECKSUM));
@@ -293,7 +288,7 @@ public class AndyDiskCache implements Closeable {
         mIndexBuffer.put(mIndexHeader);
     }
 
-    // Clear the hash table starting from the specified offset.
+    // 清除hash table
     private void clearHash(int hashStart) {
         byte[] zero = new byte[1024];
         mIndexBuffer.position(hashStart);
@@ -316,8 +311,6 @@ public class AndyDiskCache implements Closeable {
         }
 
         if (!lookupInternal(key, mActiveHashStart)) {
-            // If we don't have an existing entry with the same key, increase
-            // the entry count.
             mActiveEntries++;
             writeInt(mIndexHeader, IH_ACTIVE_ENTRIES, mActiveEntries);
         }
@@ -326,9 +319,6 @@ public class AndyDiskCache implements Closeable {
         updateIndexHeader();
     }
 
-    // Appends the data to the active file. It also updates the hash entry.
-    // The proper hash entry (suitable for insertion or replacement) must be
-    // pointed by mSlotOffset.
     private void insertInternal(long key, byte[] data, int length)
             throws IOException {
         byte[] header = mBlobHeader;
@@ -352,8 +342,6 @@ public class AndyDiskCache implements Closeable {
         public int length;      // output: the length of the blob
     }
 
-    // This method is for one-off lookup. For repeated lookup, use the version
-    // accepting LookupRequest to avoid repeated memory allocation.
     private LookupRequest mLookupRequest = new LookupRequest();
     public byte[] lookup(long key) throws IOException {
         mLookupRequest.key = key;
@@ -365,39 +353,21 @@ public class AndyDiskCache implements Closeable {
         }
     }
 
-    // Returns true if the associated blob for the given key is available.
-    // The blob is stored in the buffer pointed by req.buffer, and the length
-    // is in stored in the req.length variable.
-    //
-    // The user can input a non-null value in req.buffer, and this method will
-    // try to use that buffer. If that buffer is not large enough, this method
-    // will allocate a new buffer and assign it to req.buffer.
-    //
-    // This method tries not to throw IOException even if the data file is
-    // corrupted, but it can still throw IOException if things get strange.
     public boolean lookup(LookupRequest req) throws IOException {
-        // Look up in the active region first.
         if (lookupInternal(req.key, mActiveHashStart)) {
             if (getBlob(mActiveDataFile, mFileOffset, req)) {
                 return true;
             }
         }
 
-        // We want to copy the data from the inactive file to the active file
-        // if it's available. So we keep the offset of the hash entry so we can
-        // avoid looking it up again.
         int insertOffset = mSlotOffset;
 
-        // Look up in the inactive region.
         if (lookupInternal(req.key, mInactiveHashStart)) {
             if (getBlob(mInactiveDataFile, mFileOffset, req)) {
-                // If we don't have enough space to insert this blob into
-                // the active file, just return it.
                 if (mActiveBytes + BLOB_HEADER_SIZE + req.length > mMaxBytes
                     || mActiveEntries * 2 >= mMaxEntries) {
                     return true;
                 }
-                // Otherwise copy it over.
                 mSlotOffset = insertOffset;
                 try {
                     insertInternal(req.key, req.buffer, req.length);
@@ -415,12 +385,6 @@ public class AndyDiskCache implements Closeable {
     }
 
 
-    // Copies the blob for the specified offset in the specified file to
-    // req.buffer. If req.buffer is null or too small, allocate a buffer and
-    // assign it to req.buffer.
-    // Returns false if the blob is not available (either the index file is
-    // not sync with the data file, or one of them is corrupted). The length
-    // of the blob is stored in the req.length variable.
     private boolean getBlob(RandomAccessFile file, int offset,
             LookupRequest req) throws IOException {
         byte[] header = mBlobHeader;
@@ -471,13 +435,6 @@ public class AndyDiskCache implements Closeable {
         }
     }
 
-    // Tries to look up a key in the specified hash region.
-    // Returns true if the lookup is successful.
-    // The slot offset in the index file is saved in mSlotOffset. If the lookup
-    // is successful, it's the slot found. Otherwise it's the slot suitable for
-    // insertion.
-    // If the lookup is successful, the file offset is also saved in
-    // mFileOffset.
     private int mSlotOffset;
     private int mFileOffset;
     private boolean lookupInternal(long key, int hashStart) {
@@ -529,10 +486,6 @@ public class AndyDiskCache implements Closeable {
         }
     }
 
-    // This is for testing only.
-    //
-    // Returns the active count (mActiveEntries). This also verifies that
-    // the active count matches matches what's inside the hash region.
     int getActiveCount() {
         int count = 0;
         for (int i = 0; i < mMaxEntries; i++) {
@@ -545,7 +498,7 @@ public class AndyDiskCache implements Closeable {
             return count;
         } else {
             AndyLog.error_bitmap("wrong active count: " + mActiveEntries + " vs " + count);
-            return -1;  // signal failure.
+            return -1;  // 信号丢失
         }
     }
 

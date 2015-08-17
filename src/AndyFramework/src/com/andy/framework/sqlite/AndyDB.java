@@ -434,8 +434,7 @@ public class AndyDB {
 	public <T> T loadOneToMany(T entity, Class<T> clazz, Class<?>... findClass) {
 		if (entity != null) {
 			try {
-				Collection<AndyOneToMany> ones = AndyTableInfo.get(clazz).oneToManyMap
-						.values();
+				Collection<AndyOneToMany> ones = AndyTableInfo.get(clazz).oneToManyMap.values();
 				Object id = AndyTableInfo.get(clazz).getId().getValue(entity);
 				for (AndyOneToMany one : ones) {
 					boolean isFind = false;

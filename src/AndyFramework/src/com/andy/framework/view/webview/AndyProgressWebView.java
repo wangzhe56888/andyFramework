@@ -21,7 +21,7 @@ public class AndyProgressWebView extends WebView {
 	public AndyProgressWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
         progressbar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
-        progressbar.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, 3, 0, 0));
+        progressbar.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 3, 0, 0));
         addView(progressbar);
         setWebViewClient(new WebViewClient() {
 			@Override
