@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.tencent.tencentmap.mapsdk.map.MapView
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/map"
+        android:background="#44aaaaaa"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/cb_satelite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卫星"
+                android:textColor="@android:color/black" />
+
+            <CheckBox
+                android:id="@+id/cb_scale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="比例尺"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/et_zoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numeric="integer"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图标位置"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↙" />
+
+            <Button
+                android:id="@+id/rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↘" />
+
+            <Button
+                android:id="@+id/rt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↗" />
+
+            <Button
+                android:id="@+id/lt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↖" />
+
+            <Button
+                android:id="@+id/cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↓" />
+
+            <Button
+                android:id="@+id/ct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↑" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="比例尺位置"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/lbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↙" />
+
+            <Button
+                android:id="@+id/cbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↓" />
+
+            <Button
+                android:id="@+id/rbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="↘" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_showLog"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

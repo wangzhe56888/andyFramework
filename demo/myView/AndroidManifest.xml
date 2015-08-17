@@ -113,9 +113,22 @@
 		<activity android:name=".activity.gaode.GeoFenceActivity"/>
 		<activity android:name=".activity.gaode.GPSLocationActivity"/>
 		<activity android:name=".activity.dragGridView.DragGridViewActivity"/>
-		<activity android:name="com.andy.myself.activity.andyframework.AndyDBActivity"/>
+		<activity android:name=".activity.andyframework.AndyDBActivity"/>
         
-        
+		<!-- 腾讯地图测试 -->
+        <activity android:name=".activity.tencentmap.TencentMapMainActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapBasicActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapFragmentActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapCustFragmentActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapControlActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapGeometryActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapItemizedOverlayActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapMarkerAttributeActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapMarkerActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapLatLngBoundsActivity" />
+        <activity android:name=".activity.tencentmap.TencentMapLocAndMarkerActivity" />
+		
+		
         <!-- 监听app安装更新卸载 -->
         <receiver android:name=".activity.AppInstallReceiver"
             android:label="@string/app_name">
@@ -147,5 +160,10 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="936052e77550b6a80140629fb24a70ec" />
+        
+        <!-- 腾讯地图 -->
+        <meta-data 
+            android:name="TencentMapSDK"	
+            android:value="QWCBZ-SFV2F-LG6JP-JZJCJ-NECK5-SLFG2"/>
     </application>
 </manifest>

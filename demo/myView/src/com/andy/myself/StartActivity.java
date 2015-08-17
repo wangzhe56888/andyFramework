@@ -54,6 +54,7 @@ import com.andy.myself.activity.gaode.GaodeStartActivity;
 import com.andy.myself.activity.resideLayout.ResideLayoutActivity;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfInstalled;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfSystem;
+import com.andy.myself.activity.tencentmap.TencentMapMainActivity;
 import com.andy.myself.base.BaseHeaderActivity;
 import com.andy.myself.util.PromptUtil;
 import com.andy.view.slidingMenu.SlidingMenu;
@@ -244,7 +245,8 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 		Object[] thirdPartyActivities = 
 			{
 				R.string.activity_location_title, LocationBaiduActivity.class.getName(),
-				R.string.activity_location_gaode_title, GaodeStartActivity.class.getName()
+				R.string.activity_location_gaode_title, GaodeStartActivity.class.getName(),
+				R.string.activity_location_tencent_title, TencentMapMainActivity.class.getName()
 			};
 		// 动画相关
 		Object[] animationActivities = 

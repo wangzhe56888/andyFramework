@@ -33,6 +33,7 @@
     <string name="activity_surfaceview_title">surfaceview测试</string>
     <string name="activity_location_title">百度地理位置</string>
     <string name="activity_location_gaode_title">高德地理位置</string>
+    <string name="activity_location_tencent_title">腾讯地图</string>
     <string name="activity_drag_gridview_title">拖拽换位</string>
     <string name="activity_db_title">数据库框架</string>
 
@@ -123,4 +124,25 @@
     <string name="geofence_des">点击地图，以点击点为中心建立地理围栏，再次点击地图修改地理围栏位置</string>
      
      
+    <!-- 腾讯地图 -->
+    <string name="demo_label_basemap">地图展示:BasicMapActivity</string>
+    <string name="demo_desc_basemap">地图的基本加载显示</string>
+    <string name="demo_label_mapfragment">mapfragment展示:MapFragmentActivity</string>
+    <string name="demo_desc_mapfragment">mapfragment的基本加载显示</string>
+    <string name="demo_label_cust_mapfragment">自定义mapfragment展示:MapFragmentActivity</string>
+    <string name="demo_desc_cust_mapfragment">展示用户如何自定义一个带mapView的fragment</string>
+    <string name="demo_label_control">地图控制:MapControlActivity</string>
+    <string name="demo_desc_control">地图缩放、卫星图层的展示</string>
+    <string name="demo_label_geometry">几何图形:MapGeometryActivity</string>
+    <string name="demo_desc_geometry">添加、删除覆盖几何图形及图片</string>
+    <string name="demo_label_itemized_overlay">覆盖物:ItemizedOverlayActivity</string>
+    <string name="demo_desc_itemized_overlay">添加、删除覆盖物</string>
+    <string name="demo_label_marker">标注物:MarkerActivity</string>
+    <string name="demo_desc_marker">添加标志物及其操作</string>
+    <string name="demo_label_latlngbounds">区域检测：LatLngBoudsActivity</string>
+    <string name="demo_desc_latlngbounds">检测点与区域的内外关系或区域间的相交关系</string>
+    <string name="demo_label_marker_attr">marker相关属性：MarkerAttributeActivity</string>
+    <string name="demo_desc_marker_attr">marker的相关属性展示</string>
+    <string name="demo_label_location_marker">定位并标注：MarkerAttributeActivity</string>
+    <string name="demo_desc_location_marker">定位并标注当前定位位置</string>
 </resources>

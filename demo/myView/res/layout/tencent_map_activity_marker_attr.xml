@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/bearingtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Drag the Seeking bar to set rotate"
+        android:textColor="#fff" />
+
+    <SeekBar
+        android:id="@+id/bearing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="360"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/anchorutext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Drag the Seeking bar to set anchorU"
+        android:textColor="#fff" />
+
+    <SeekBar
+        android:id="@+id/anchoru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="360"
+        android:padding="5dp" />
+
+        <TextView 
+        android:id="@+id/anchorvtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding = "5dp"
+        android:textColor="#fff"
+        android:text="Drag the Seeking bar to set anchorV."
+        />
+    
+    <SeekBar
+        android:id="@+id/anchorv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="360"
+        android:padding="5dp" />
+    
+    <com.tencent.tencentmap.mapsdk.map.MapView
+        android:id="@+id/mapviewOverlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="clear" />
+
+</LinearLayout>
