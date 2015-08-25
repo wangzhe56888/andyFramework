@@ -369,11 +369,11 @@ public class AndyHttp {
     	 return download(url, null, target, isResume, callback);
     }
     
-    public AndyHttpHandler<File> download( String url,AndyRequestParams params, String target, AndyHttpCallback<File> callback) {
+    public AndyHttpHandler<File> download(String url,AndyRequestParams params, String target, AndyHttpCallback<File> callback) {
    	 	return download(url, params, target, false, callback);
     }
     
-    public AndyHttpHandler<File> download( String url,AndyRequestParams params, String target,boolean isResume, AndyHttpCallback<File> callback) {
+    public AndyHttpHandler<File> download(String url,AndyRequestParams params, String target,boolean isResume, AndyHttpCallback<File> callback) {
     	final HttpGet get =  new HttpGet(getUrlWithQueryString(url, params));
     	AndyHttpHandler<File> handler = new AndyHttpHandler<File>(httpClient, httpContext, callback,charset);
     	handler.executeOnExecutor(executor,get,target,isResume);

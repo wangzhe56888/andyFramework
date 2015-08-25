@@ -1,6 +1,5 @@
 package com.andy.myself.activity.resideLayout;
 
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,67 +15,66 @@ import android.widget.TextView;
 
 import com.andy.myself.R;
 
-
 public class ResideLayoutActivity extends FragmentActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reside_layout);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_reside_layout);
 
-        ViewPager pager = (ViewPager) findViewById(R.id.pager);
-        pager.setAdapter(new SimplePagerAdapter(getSupportFragmentManager()));
-    }
+		ViewPager pager = (ViewPager) findViewById(R.id.pager);
+		pager.setAdapter(new SimplePagerAdapter(getSupportFragmentManager()));
+	}
 
-    private class SimplePagerAdapter extends FragmentPagerAdapter{
+	private class SimplePagerAdapter extends FragmentPagerAdapter {
 
-        public SimplePagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
+		public SimplePagerAdapter(FragmentManager fm) {
+			super(fm);
+		}
 
-        @Override
-        public Fragment getItem(int i) {
-            return SimpleFragment.newInstance(i);
-        }
+		@Override
+		public Fragment getItem(int i) {
+			return SimpleFragment.newInstance(i);
+		}
 
-        @Override
-        public int getCount() {
-            return 5;
-        }
+		@Override
+		public int getCount() {
+			return 5;
+		}
 
+	}
 
-    }
+	public static class SimpleFragment extends Fragment {
 
-    public static class SimpleFragment extends Fragment{
+		private int mIndex;
+		private TextView mView;
 
-        private int mIndex;
-        private TextView mView;
+		public static SimpleFragment newInstance(int index) {
+			SimpleFragment fragment = new SimpleFragment();
+			Bundle args = new Bundle();
+			args.putInt("index", index);
+			fragment.setArguments(args);
+			return fragment;
+		}
 
-        public static SimpleFragment newInstance(int index){
-            SimpleFragment fragment = new SimpleFragment();
-            Bundle args = new Bundle();
-            args.putInt("index", index);
-            fragment.setArguments(args);
-            return fragment;
-        }
+		@Override
+		public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			mIndex = getArguments().getInt("index");
+		}
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            mIndex = getArguments().getInt("index");
-        }
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				@Nullable Bundle savedInstanceState) {
+			mView = new TextView(container.getContext());
+			mView.setBackgroundColor(Color.WHITE);
+			return mView;
+		}
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState) {
-            mView = new TextView(container.getContext());
-            mView.setBackgroundColor(Color.WHITE);
-            return mView;
-        }
-
-        @Override
-        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
-            mView.setText("Fragment: " + mIndex);
-        }
-    }
+		@Override
+		public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+			super.onViewCreated(view, savedInstanceState);
+			mView.setText("Fragment: " + mIndex);
+		}
+	}
 }
