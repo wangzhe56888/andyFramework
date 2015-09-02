@@ -72,6 +72,7 @@ containing a value of this type.
         public static final int rotateToCenter=0x7f010002;
     }
     public static final class color {
+        public static final int andy_color_white_gray=0x7f090011;
         public static final int background_color=0x7f090000;
         public static final int black=0x7f090008;
         public static final int blue=0x7f090009;

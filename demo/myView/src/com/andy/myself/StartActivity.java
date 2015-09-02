@@ -451,7 +451,7 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 				convertView.setTag(holder);
 			}
 			
-			convertView.setBackgroundResource(R.color.white);
+			convertView.setBackgroundResource(R.color.andy_color_white_gray);
 			holder.iconImageView.setVisibility(View.INVISIBLE);
 			
 			Map<String, String> map = groupBeans[groupPosition].childList.get(childPosition);
