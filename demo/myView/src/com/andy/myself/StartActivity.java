@@ -51,6 +51,7 @@ import com.andy.myself.activity.andyframework.AndyHttpActivity;
 import com.andy.myself.activity.animation.AnimationActivity;
 import com.andy.myself.activity.dragGridView.DragGridViewActivity;
 import com.andy.myself.activity.gaode.GaodeStartActivity;
+import com.andy.myself.activity.jpush.JpushActivity;
 import com.andy.myself.activity.resideLayout.ResideLayoutActivity;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfInstalled;
 import com.andy.myself.activity.systemAppInfo.GetApplicationOfSystem;
@@ -88,6 +89,7 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 		initView(savedInstanceState);
 	}
 
+	
 	@Override
 	protected void initView(Bundle savedInstanceState) {
 		super.initView(savedInstanceState);
@@ -246,7 +248,8 @@ public class StartActivity extends BaseHeaderActivity implements OnChildClickLis
 			{
 				R.string.activity_location_title, LocationBaiduActivity.class.getName(),
 				R.string.activity_location_gaode_title, GaodeStartActivity.class.getName(),
-				R.string.activity_location_tencent_title, TencentMapMainActivity.class.getName()
+				R.string.activity_location_tencent_title, TencentMapMainActivity.class.getName(),
+				R.string.activity_jpush_title, JpushActivity.class.getName()
 			};
 		// 动画相关
 		Object[] animationActivities = 

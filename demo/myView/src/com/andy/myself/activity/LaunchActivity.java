@@ -15,6 +15,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import cn.jpush.android.api.JPushInterface;
 
 import com.andy.myself.R;
 import com.andy.myself.StartActivity;
@@ -104,6 +105,17 @@ public class LaunchActivity extends BaseActivity implements AnimationListener{
 		});
 	}
 
+// 下面两个周期函数用于清除jpush统计提示
+	@Override
+	protected void onPause() {
+		super.onPause();
+		JPushInterface.onPause(this);
+	}
+	@Override
+	protected void onResume() {
+		super.onResume();
+		JPushInterface.onResume(this);
+	}
 	private void startNextAnimation() {
 		if (index < textViews.size()) {
 			TextView textView = textViews.get(index);

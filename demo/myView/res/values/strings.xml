@@ -31,11 +31,13 @@
     <string name="activity_validate_title">常用正则验证</string>
     <string name="activity_animation_title">动画测试</string>
     <string name="activity_surfaceview_title">surfaceview测试</string>
+    <string name="activity_drag_gridview_title">拖拽换位</string>
+    <string name="activity_db_title">数据库框架</string>
+    
     <string name="activity_location_title">百度地理位置</string>
     <string name="activity_location_gaode_title">高德地理位置</string>
     <string name="activity_location_tencent_title">腾讯地图</string>
-    <string name="activity_drag_gridview_title">拖拽换位</string>
-    <string name="activity_db_title">数据库框架</string>
+    <string name="activity_jpush_title">极光推送</string>
 
     <string name="nba_bulls">公牛</string>
     <string name="nba_bucks">雄鹿</string>

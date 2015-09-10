@@ -3,6 +3,8 @@ package com.andy.myself;
 import java.util.LinkedList;
 import java.util.List;
 
+import cn.jpush.android.api.JPushInterface;
+
 import android.app.Activity;
 import android.app.Application;
 
@@ -26,6 +28,13 @@ public class AndyApplication extends Application {
 //		}
 //		return instance;
 //	}
+	
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);
+	}
 	
 	public void addActivity(Activity activity) {
 		if (activities != null && !activities.contains(activity)) {

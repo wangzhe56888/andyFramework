@@ -10,5 +10,8 @@ package com.andy.myself;
 public final class Manifest {
     public static final class permission {
         public static final String BAIDU_LOCATION_SERVICE="android.permission.BAIDU_LOCATION_SERVICE";
+        /**  Required 极光推送  自定义用来收发消息的相关权限 
+         */
+        public static final String JPUSH_MESSAGE="com.andy.myself.permission.JPUSH_MESSAGE";
     }
 }

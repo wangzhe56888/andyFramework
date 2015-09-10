@@ -1,6 +1,8 @@
-package com.andy.myself.base;
+package com.andy.myself.activity.jpush;
 
+import android.app.Activity;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,16 +11,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.andy.framework.util.AndyBarTintManager;
 import com.andy.framework.util.AndyScreenUtil;
 import com.andy.myself.R;
-/**
- * @description: 带有header的Activity基类
- * @author: andy  
- * @mail: win58@qq.com
- */
-public abstract class BaseHeaderActivity extends BaseActivity implements OnClickListener{
+import com.andy.myself.base.BaseHeaderActivity;
 
-	public static final String KEY_TITLE_SRC = "KEY_TITLE_SRC";
+import cn.jpush.android.api.InstrumentedActivity;
+
+/**
+ * @description: 
+ * @author: andy
+ * @mail: win58@qq.com
+ * @date: 2015-9-9  下午5:43:35
+ */
+public class JPushBaseHeaderActivity extends InstrumentedActivity implements OnClickListener {
+	protected Activity mActivity;
 	protected TextView titleTextView;
 	protected ImageView backImageView;
 	
@@ -46,7 +53,7 @@ public abstract class BaseHeaderActivity extends BaseActivity implements OnClick
 		backImageView.setOnClickListener(this);
 		
 		if (getIntent() != null && getIntent().getExtras() != null) {
-			String string = getIntent().getExtras().getString(KEY_TITLE_SRC);
+			String string = getIntent().getExtras().getString(BaseHeaderActivity.KEY_TITLE_SRC);
 			
 			if (string != null && string.length() > 0) {
 				titleTextView.setText(string);
@@ -71,5 +78,12 @@ public abstract class BaseHeaderActivity extends BaseActivity implements OnClick
 		if (v.getId() == R.id.common_back_view_id) {
 			finish();
 		}
+	}
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		mActivity = this;
+		AndyBarTintManager manager = new AndyBarTintManager(this);
+		manager.setBarTintTransparent(true);
 	}
 }
