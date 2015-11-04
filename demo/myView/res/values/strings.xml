@@ -34,6 +34,9 @@
     <string name="activity_drag_gridview_title">拖拽换位</string>
     <string name="activity_db_title">数据库框架</string>
     
+    <string name="activity_game_surfaceview_title">surfaceview绘制</string>
+    <string name="activity_game_collision_surfaceview_title">碰撞测试</string>
+    
     <string name="activity_location_title">百度地理位置</string>
     <string name="activity_location_gaode_title">高德地理位置</string>
     <string name="activity_location_tencent_title">腾讯地图</string>
@@ -76,6 +79,8 @@
     <string name="activity_start_group_animator_desc">一些动画的使用demo</string>
     <string name="activity_start_group_other_title">其他类型</string>
     <string name="activity_start_group_other_desc">其他杂项测试demo</string>
+    <string name="activity_start_group_game_title">游戏开发</string>
+    <string name="activity_start_group_game_desc">游戏开发相关技能练习</string>
     
     <!-- andy DB 测试 -->
     <string name="db_username_tip">请输入用户名</string>

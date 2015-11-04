@@ -68,7 +68,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activity.LaunchActivity"
+            android:name=".StartActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -78,7 +78,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".StartActivity"
+            android:name=".activity.LaunchActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.CircleActivity" />
@@ -112,7 +112,11 @@
         <activity android:name=".activity.gaode.GPSLocationActivity" />
         <activity android:name=".activity.dragGridView.DragGridViewActivity" />
         <activity android:name=".activity.andyframework.AndyDBActivity" />
+        <activity android:name=".activity.game.GameDrawSurfaceViewActivity" />
+        <activity android:name=".activity.game.GameCollisionActivity" />
 
+        
+        
         <!-- 腾讯地图测试 -->
         <activity android:name=".activity.tencentmap.TencentMapMainActivity" />
         <activity android:name=".activity.tencentmap.TencentMapBasicActivity" />
